@@ -1,0 +1,111 @@
+import { BrushCleaning, Clapperboard, Database, MessageSquare, Monitor, Palette, Smartphone, Sparkles, WandSparkles } from 'lucide-react';
+import {
+  SiBootstrap,
+  SiDotnet,
+  SiFigma,
+  SiJavascript,
+  SiLaravel,
+  SiMysql,
+  SiN8N,
+  SiNextdotjs,
+  SiPostgresql,
+  SiReact,
+  SiShopify,
+  SiTailwindcss,
+  SiTypescript,
+  SiWoocommerce,
+  SiWordpress,
+} from 'react-icons/si';
+
+export const techStack = [
+  {
+    name: 'React',
+    icon: SiReact,
+    color: '#61dafb',
+    description: 'JavaScript library for building user interfaces',
+  },
+  {
+    name: 'React Native',
+    icon: Smartphone,
+    color: '#61dafb',
+    description: 'Framework for building native apps using React',
+  },
+  {
+    name: 'Next.js',
+    icon: SiNextdotjs,
+    color: 'var(--theme-icon-contrast)',
+    description: 'React framework for server-rendered applications',
+  },
+  {
+    name: 'MySQL',
+    icon: SiMysql,
+    color: '#00758f',
+    description: 'Open-source relational database management system',
+  },
+  {
+    name: 'PostgreSQL',
+    icon: SiPostgresql,
+    color: '#336791',
+    description: 'Open-source, highly extensible relational database system',
+  },
+  {
+    name: 'SQL Server',
+    icon: Database,
+    color: '#cc2927',
+    description: 'Relational database management system by Microsoft',
+  },
+  {
+    name: '.NET',
+    icon: SiDotnet,
+    color: '#512bd4',
+    description: 'Cross-platform developer platform for building versatile applications',
+  },
+  {
+    name: 'Laravel',
+    icon: SiLaravel,
+    color: '#ff2d20',
+    description: 'PHP framework for web artisans',
+  },
+  {
+    name: 'Figma',
+    icon: SiFigma,
+    color: '#f24e1e',
+    description: 'Web-based UI/UX design tool',
+  },
+  {
+    name: 'Adobe Illustrator',
+    icon: BrushCleaning,
+    color: '#ff9a00',
+    description: 'Vector graphics editor and design program by Adobe',
+  },
+  {
+    name: 'Canva',
+    icon: Palette,
+    color: '#00c4cc',
+    description: 'Graphic design platform for versatile visual content creation',
+  },
+  {
+    name: 'CapCut',
+    icon: Clapperboard,
+    color: 'var(--theme-icon-contrast)',
+    description: 'Video editing software for mobile and desktop',
+  },
+  {
+    name: 'KlingAI',
+    icon: WandSparkles,
+    color: 'var(--theme-accent)',
+    description: 'AI-powered tool for creating and editing videos',
+  },
+  {
+    name: 'Meta Business Suite',
+    icon: MessageSquare,
+    color: '#0866ff',
+    description: 'Platform for managing Facebook and Instagram business accounts',
+  },
+  {
+    name: 'n8n',
+    icon: SiN8N,
+    color: '#ff6d5a',
+    description: 'Open-source workflow automation tool',
+  },
+];

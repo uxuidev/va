@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "badge": "Virtual Assistant Services",
+    "title": "Delegate Your Tasks, Scale Your Business",
+    "subtitle": "Professional virtual administrative, technical, and operational support tailored to help your business grow smoothly.",
+    "primaryCta": "Get Started",
+    "secondaryCta": "Explore Services"
+  },
+  "services": {
+    "tagline": "What We Offer",
+    "heading": "Comprehensive Virtual Solutions",
+    "description": "Customized administrative and technical support designed to save you time and streamline your daily operations.",
+    "items": [
+      {
+        "id": "admin",
+        "title": "Administrative Support",
+        "desc": "Calendar management, email handling, scheduling, and general office coordination."
+      },
+      {
+        "id": "tech",
+        "title": "Technical & Web Maintenance",
+        "desc": "Website updates, basic database management, and workflow automation."
+      },
+      {
+        "id": "customer-service",
+        "title": "Customer Support",
+        "desc": "Omnichannel email, live chat, and ticketing management for your clientele."
+      },
+      {
+        "id": "data-entry",
+        "title": "Data Management",
+        "desc": "Accurate data entry, web research, file organization, and reporting."
+      }
+    ]
+  },
+  "testimonial": {
+    "tagline": "Client Success",
+    "heading": "Trusted by Growing Businesses",
+    "items": [
+      {
+        "id": 1,
+        "quote": "Delegating our operational tasks gave us back 20+ hours a week. Exceptional organization and speed.",
+        "author": "Sarah Jenkins",
+        "role": "Operations Director",
+        "company": "Apex Dynamics"
+      },
+      {
+        "id": 2,
+        "quote": "The technical support and proactive communication exceeded our expectations completely.",
+        "author": "Marcus Vance",
+        "role": "Founder & CEO",
+        "company": "Vance Labs"
+      }
+    ]
+  },
+  "partner": {
+    "heading": "Integrations & Ecosystem",
+    "subheading": "Seamlessly working with the tools and platforms you use daily.",
+    "logos": [
+      { "name": "Next.js", "alt": "Next.js Framework" },
+      { "name": "PostgreSQL", "alt": "PostgreSQL Database" },
+      { "name": "Prisma", "alt": "Prisma ORM" },
+      { "name": "Workana", "alt": "Workana Platform" }
+    ]
+  },
+  "contact": {
+    "heading": "Let's Get Started",
+    "subheading": "Ready to free up your schedule? Send us a message and let's discuss your requirements.",
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@company.com",
+      "messageLabel": "Project Details",
+      "messagePlaceholder": "Tell us how we can help...",
+      "submitButton": "Send Message"
+    }
+  }
+}

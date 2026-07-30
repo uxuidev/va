@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "badge": "Servicios de Asistente Virtual",
+    "title": "Delega tus tareas, haz crecer tu negocio",
+    "subtitle": "Soporte virtual profesional administrativo, técnico y operativo diseñado para ayudar a que su empresa crezca sin problemas.",
+    "primaryCta": "Comenzar",
+    "secondaryCta": "Explorar servicios"
+  },
+  "services": {
+    "tagline": "Lo que ofrecemos",
+    "heading": "Soluciones virtuales integrales",
+    "description": "Soporte técnico y administrativo personalizado diseñado para ahorrarle tiempo y optimizar sus operaciones diarias.",
+    "items": [
+      {
+        "id": "admin",
+        "title": "Soporte Administrativo",
+        "desc": "Gestión de agenda, manejo de correo electrónico, programación y coordinación general de oficina."
+      },
+      {
+        "id": "tech",
+        "title": "Mantenimiento Técnico y Web",
+        "desc": "Actualizaciones de sitios web, gestión básica de bases de datos y automatización de flujos de trabajo."
+      },
+      {
+        "id": "customer-service",
+        "title": "Atención al Cliente",
+        "desc": "Gestión multicanal de correo electrónico, chat en vivo y tickets para su clientela."
+      },
+      {
+        "id": "data-entry",
+        "title": "Gestión de Datos",
+        "desc": "Entrada precisa de datos, investigación web, organización de archivos y elaboración de informes."
+      }
+    ]
+  },
+  "testimonial": {
+    "tagline": "Éxito de nuestros clientes",
+    "heading": "Confianza de empresas en crecimiento",
+    "items": [
+      {
+        "id": 1,
+        "quote": "Delegar nuestras tareas operativas nos devolvió más de 20 horas a la semana. Una organización y velocidad excepcionales.",
+        "author": "Sarah Jenkins",
+        "role": "Directora de Operaciones",
+        "company": "Apex Dynamics"
+      },
+      {
+        "id": 2,
+        "quote": "El soporte técnico y la comunicación proactiva superaron por completo nuestras expectativas.",
+        "author": "Marcus Vance",
+        "role": "Fundador y CEO",
+        "company": "Vance Labs"
+      }
+    ]
+  },
+  "partner": {
+    "heading": "Integraciones y Ecosistema",
+    "subheading": "Trabajamos sin problemas con las herramientas y plataformas que utiliza a diario.",
+    "logos": [
+      { "name": "Next.js", "alt": "Next.js Framework" },
+      { "name": "PostgreSQL", "alt": "Base de datos PostgreSQL" },
+      { "name": "Prisma", "alt": "Prisma ORM" },
+      { "name": "Workana", "alt": "Plataforma Workana" }
+    ]
+  },
+  "contact": {
+    "heading": "Comencemos",
+    "subheading": "¿Listo para liberar tu tiempo? Envíanos un mensaje y hablemos de tus necesidades.",
+    "form": {
+      "nameLabel": "Nombre completo",
+      "namePlaceholder": "Juan Pérez",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "juan@empresa.com",
+      "messageLabel": "Detalles del proyecto",
+      "messagePlaceholder": "Cuéntanos cómo podemos ayudarte...",
+      "submitButton": "Enviar mensaje"
+    }
+  }
+}
