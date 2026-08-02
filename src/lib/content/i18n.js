@@ -6,11 +6,13 @@ export const i18n = {
 const dictionaries = {
   en: {
     home: () => import('./en/home.json'),
+    testimonial: () => import('./en/testimonial.json'),
     portfolio: () => import('./en/portfolio.json'),
     feedback: () => import('./en/feedback.json'),
   },
   es: {
     home: () => import('./es/home.json'),
+    testimonial: () => import('./es/testimonial.json'),
     portfolio: () => import('./es/portfolio.json'),
     feedback: () => import('./es/feedback.json'),
   },
