@@ -1,0 +1,33 @@
+{
+	"feedback": {
+		"eyebrow": "Share your experience",
+		"title": "Your feedback helps us build better work.",
+		"body": "Tell Bitwork Tech about your experience. Your review helps future clients and candidates understand how we work.",
+		"previewLabel": "Review preview",
+		"previewEmpty": "Your feedback will appear here as you write it.",
+		"previewQuote": "{comment}",
+		"formTitle": "Leave a review",
+		"formSubtitle": "Fields marked with an asterisk are required.",
+		"nameLabel": "Full name",
+		"namePlaceholder": "Your name",
+		"companyLabel": "Company",
+		"companyPlaceholder": "Company name",
+		"designationLabel": "Role or designation",
+		"designationPlaceholder": "Your role",
+		"ratingLabel": "Star rating",
+		"ratingHint": "Choose a rating",
+		"commentLabel": "Your feedback",
+		"commentPlaceholder": "What was it like working with Bitwork Tech?",
+		"wordCounter": "{count} / 50 words",
+		"uploadLabel": "Photo or logo",
+		"uploadTitle": "Upload an image",
+		"uploadBody": "JPEG, PNG, WEBP, or GIF up to 2MB",
+		"uploadSelected": "Image ready to attach",
+		"removeImage": "Remove selected image",
+		"submit": "Send feedback",
+		"sending": "Sending feedback...",
+		"requiredError": "Please provide your name and a star rating.",
+		"imageError": "Choose a JPEG, PNG, WEBP, or GIF image smaller than 2MB.",
+		"success": "Thank you. Your feedback has been submitted."
+	}
+}

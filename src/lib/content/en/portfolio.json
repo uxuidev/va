@@ -1,0 +1,69 @@
+{
+  "title": "Portfolio",
+  "subtitle": "Selected work across digital experiences, commerce, design, and data.",
+  "navigation": "Portfolio categories",
+  "contactCta": "Start a project",
+  "mediaLabel": "Preview of {title}",
+  "tabs": {
+    "website": "Websites",
+    "socialmedia": "Social media",
+    "ecommerce": "Ecommerce",
+    "designing": "Graphic design",
+    "visualization": "Data visuals"
+  },
+  "website": {
+    "label": "Website portfolio",
+    "items": [
+      { "id": "careassist", "title": "Healthcare Services Provider", "src": "/portfolio/web/careassist.JPG", "url": "https://careassistjamaica.com" },
+      { "id": "finance", "title": "Personal Finance Portal", "src": "/portfolio/web/finance.jpg", "url": "https://app.zungar.com" },
+      { "id": "foodtruck", "title": "Food Truck & Catering Services", "src": "/portfolio/web/foodtruck.jpg", "url": "https://foodtruckgo.com.br" },
+      { "id": "bluesprings", "title": "Well Digging Services", "src": "/portfolio/web/bluesprings.jpg", "url": "https://blue-springs.de" },
+      { "id": "konfiable", "title": "Business Rating & Reviews", "src": "/portfolio/web/konfiable.JPG", "url": "https://konfiable.bitwork.tech" },
+      { "id": "sportswear", "title": "Sportswear Manufacturers", "src": "/portfolio/web/sportswear.JPG", "url": "https://fitinwear.bitwork.tech" }
+    ]
+  },
+  "socialmedia": {
+    "label": "Social media portfolio",
+    "items": [
+      { "id": "coffee", "title": "Video ad", "kind": "video", "src": "/portfolio/socialmedia/coffee.mp4" },
+      { "id": "trugreen", "title": "Post", "kind": "image", "src": "/portfolio/socialmedia/trugreen.png" },
+      { "id": "foodtruck", "title": "Video ad", "kind": "video", "src": "/portfolio/socialmedia/foodtruck.mp4" },
+      { "id": "decorport", "title": "Post", "kind": "image", "src": "/portfolio/socialmedia/decorport.png" },
+      { "id": "fitinwear", "title": "Video ad", "kind": "video", "src": "/portfolio/socialmedia/fitinwear.mp4" },
+      { "id": "solaxpower", "title": "Post", "kind": "image", "src": "/portfolio/socialmedia/solaxpower.png" }
+    ]
+  },
+  "ecommerce": {
+    "label": "Ecommerce portfolio",
+    "items": [
+      { "id": "shopzetu1", "title": "Apparel Store", "src": "/portfolio/ecommerce/shopzetu1.jpg", "url": "https://shopzetu.com" },
+      { "id": "postnatal", "title": "Spa Booking", "src": "/portfolio/ecommerce/postnatal.jpg", "url": "https://app.zungar.com" },
+      { "id": "troutfishing", "title": "Fishing Flies Store", "src": "/portfolio/ecommerce/troutfishing.JPG", "url": "https://troutflyfishingflieskenya.com" },
+      { "id": "shopzetu3", "title": "Jewelry & Accessories", "src": "/portfolio/ecommerce/shopzetu3.jpg", "url": "https://shopzetu.com" },
+      { "id": "wetakeitmoving", "title": "Trade Solutions", "src": "/portfolio/ecommerce/wetakeitmoving.jpg", "url": "https://tradesolution.bitwork.tech" },
+      { "id": "manus", "title": "Sports & Fitness Shop", "src": "/portfolio/ecommerce/manusAI.JPG", "url": "https://sysrurpd.manus.space/" }
+    ]
+  },
+  "designing": {
+    "label": "Graphic design portfolio",
+    "items": [
+      { "id": "intro", "title": "Intro Video", "kind": "video", "src": "/portfolio/graphics/intro.mp4" },
+      { "id": "sweat", "title": "Product Design", "src": "/portfolio/graphics/sweat.png" },
+      { "id": "fitinwear", "title": "Fitinwear Logo", "src": "/portfolio/graphics/fitinwear.png" },
+      { "id": "shortset", "title": "Product Design", "src": "/portfolio/graphics/shortset.jpeg" },
+      { "id": "borneofresh", "title": "Borneofresh Logo", "src": "/portfolio/graphics/borneofresh.png" },
+      { "id": "tshirt", "title": "Product Design", "src": "/portfolio/graphics/t-shirt.png" }
+    ]
+  },
+  "visualization": {
+    "label": "Data visualization portfolio",
+    "items": [
+      { "id": "stacked", "title": "Quarterly Revenue Breakdown", "type": "Stacked Bar Chart", "src": "/portfolio/data/stackedbarchart.png" },
+      { "id": "polar", "title": "Budget Distribution", "type": "Polar Area Chart", "src": "/portfolio/data/polararea.png" },
+      { "id": "line", "title": "Monthly Financial Performance", "type": "Line Chart", "src": "/portfolio/data/linechart.png" },
+      { "id": "pie", "title": "Sales Distribution", "type": "Pie Chart", "src": "/portfolio/data/pie.png" },
+      { "id": "doughnut", "title": "Business Expense", "type": "Doughnut Chart", "src": "/portfolio/data/doughnut.png" },
+      { "id": "vertical", "title": "Monthly Business Overview", "type": "Vertical Bar Chart", "src": "/portfolio/data/verticalbarchart.png" }
+    ]
+  }
+}

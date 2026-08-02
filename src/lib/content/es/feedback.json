@@ -1,0 +1,33 @@
+{
+	"feedback": {
+		"eyebrow": "Comparte tu experiencia",
+		"title": "Tus comentarios nos ayudan a construir un mejor trabajo.",
+		"body": "Cuéntale a Bitwork Tech sobre tu experiencia. Tu reseña ayuda a futuros clientes y candidatos a entender cómo trabajamos.",
+		"previewLabel": "Vista previa de la reseña",
+		"previewEmpty": "Tus comentarios aparecerán aquí mientras escribes.",
+		"previewQuote": "{comment}",
+		"formTitle": "Deja una reseña",
+		"formSubtitle": "Los campos marcados con un asterisco son obligatorios.",
+		"nameLabel": "Nombre completo",
+		"namePlaceholder": "Tu nombre",
+		"companyLabel": "Empresa",
+		"companyPlaceholder": "Nombre de la empresa",
+		"designationLabel": "Cargo o función",
+		"designationPlaceholder": "Tu cargo",
+		"ratingLabel": "Calificación",
+		"ratingHint": "Elige una calificación",
+		"commentLabel": "Tus comentarios",
+		"commentPlaceholder": "¿Cómo fue trabajar con Bitwork Tech?",
+		"wordCounter": "{count} / 50 palabras",
+		"uploadLabel": "Foto o logotipo",
+		"uploadTitle": "Sube una imagen",
+		"uploadBody": "JPEG, PNG, WEBP o GIF de hasta 2 MB",
+		"uploadSelected": "Imagen lista para adjuntar",
+		"removeImage": "Eliminar imagen seleccionada",
+		"submit": "Enviar comentarios",
+		"sending": "Enviando comentarios...",
+		"requiredError": "Proporciona tu nombre y una calificación.",
+		"imageError": "Elige una imagen JPEG, PNG, WEBP o GIF de menos de 2 MB.",
+		"success": "Gracias. Tus comentarios se han enviado."
+	}
+}

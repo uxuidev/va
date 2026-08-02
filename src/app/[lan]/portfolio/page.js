@@ -1,9 +1,11 @@
-import Portfolio from './portfolio';
+import { getDictionary } from "@/lib/content/i18n";
+import Portfolio from "./portfolio";
 
-const page = () => {
-    return (
-        <Portfolio />
-    )
-}
+const Page = async ({ params }) => {
+    const { lan } = await params;
+    const content = await getDictionary(lan, "portfolio");
 
-export default page
+    return <Portfolio content={{ ...content, category: content.website }} locale={lan} />;
+};
+
+export default Page;

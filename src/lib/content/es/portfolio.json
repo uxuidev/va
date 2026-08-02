@@ -1,0 +1,69 @@
+{
+  "title": "Portafolio",
+  "subtitle": "Trabajo seleccionado en experiencias digitales, comercio, diseño y datos.",
+  "navigation": "Categorías del portafolio",
+  "contactCta": "Iniciar un proyecto",
+  "mediaLabel": "Vista previa de {title}",
+  "tabs": {
+    "website": "Sitios web",
+    "socialmedia": "Redes sociales",
+    "ecommerce": "Comercio electrónico",
+    "designing": "Diseño gráfico",
+    "visualization": "Visualización de datos"
+  },
+  "website": {
+    "label": "Portafolio de sitios web",
+    "items": [
+      { "id": "careassist", "title": "Proveedor de servicios de salud", "src": "/portfolio/web/careassist.JPG", "url": "https://careassistjamaica.com" },
+      { "id": "finance", "title": "Portal de finanzas personales", "src": "/portfolio/web/finance.jpg", "url": "https://app.zungar.com" },
+      { "id": "foodtruck", "title": "Servicios de food truck y catering", "src": "/portfolio/web/foodtruck.jpg", "url": "https://foodtruckgo.com.br" },
+      { "id": "bluesprings", "title": "Servicios de perforación de pozos", "src": "/portfolio/web/bluesprings.jpg", "url": "https://blue-springs.de" },
+      { "id": "konfiable", "title": "Calificaciones y reseñas de negocios", "src": "/portfolio/web/konfiable.JPG", "url": "https://konfiable.bitwork.tech" },
+      { "id": "sportswear", "title": "Fabricantes de ropa deportiva", "src": "/portfolio/web/sportswear.JPG", "url": "https://fitinwear.bitwork.tech" }
+    ]
+  },
+  "socialmedia": {
+    "label": "Portafolio de redes sociales",
+    "items": [
+      { "id": "coffee", "title": "Anuncio en video", "kind": "video", "src": "/portfolio/socialmedia/coffee.mp4" },
+      { "id": "trugreen", "title": "Publicación", "kind": "image", "src": "/portfolio/socialmedia/trugreen.png" },
+      { "id": "foodtruck", "title": "Anuncio en video", "kind": "video", "src": "/portfolio/socialmedia/foodtruck.mp4" },
+      { "id": "decorport", "title": "Publicación", "kind": "image", "src": "/portfolio/socialmedia/decorport.png" },
+      { "id": "fitinwear", "title": "Anuncio en video", "kind": "video", "src": "/portfolio/socialmedia/fitinwear.mp4" },
+      { "id": "solaxpower", "title": "Publicación", "kind": "image", "src": "/portfolio/socialmedia/solaxpower.png" }
+    ]
+  },
+  "ecommerce": {
+    "label": "Portafolio de comercio electrónico",
+    "items": [
+      { "id": "shopzetu1", "title": "Tienda de ropa", "src": "/portfolio/ecommerce/shopzetu1.jpg", "url": "https://shopzetu.com" },
+      { "id": "postnatal", "title": "Reservas de spa", "src": "/portfolio/ecommerce/postnatal.jpg", "url": "https://app.zungar.com" },
+      { "id": "troutfishing", "title": "Tienda de moscas de pesca", "src": "/portfolio/ecommerce/troutfishing.JPG", "url": "https://troutflyfishingflieskenya.com" },
+      { "id": "shopzetu3", "title": "Joyería y accesorios", "src": "/portfolio/ecommerce/shopzetu3.jpg", "url": "https://shopzetu.com" },
+      { "id": "wetakeitmoving", "title": "Soluciones comerciales", "src": "/portfolio/ecommerce/wetakeitmoving.jpg", "url": "https://tradesolution.bitwork.tech" },
+      { "id": "manus", "title": "Tienda de deporte y fitness", "src": "/portfolio/ecommerce/manusAI.JPG", "url": "https://sysrurpd.manus.space/" }
+    ]
+  },
+  "designing": {
+    "label": "Portafolio de diseño gráfico",
+    "items": [
+      { "id": "intro", "title": "Video de introducción", "kind": "video", "src": "/portfolio/graphics/intro.mp4" },
+      { "id": "sweat", "title": "Diseño de producto", "src": "/portfolio/graphics/sweat.png" },
+      { "id": "fitinwear", "title": "Logotipo de Fitinwear", "src": "/portfolio/graphics/fitinwear.png" },
+      { "id": "shortset", "title": "Diseño de producto", "src": "/portfolio/graphics/shortset.jpeg" },
+      { "id": "borneofresh", "title": "Logotipo de Borneofresh", "src": "/portfolio/graphics/borneofresh.png" },
+      { "id": "tshirt", "title": "Diseño de producto", "src": "/portfolio/graphics/t-shirt.png" }
+    ]
+  },
+  "visualization": {
+    "label": "Portafolio de visualización de datos",
+    "items": [
+      { "id": "stacked", "title": "Desglose trimestral de ingresos", "type": "Gráfico de barras apiladas", "src": "/portfolio/data/stackedbarchart.png" },
+      { "id": "polar", "title": "Distribución del presupuesto", "type": "Gráfico de área polar", "src": "/portfolio/data/polararea.png" },
+      { "id": "line", "title": "Rendimiento financiero mensual", "type": "Gráfico de líneas", "src": "/portfolio/data/linechart.png" },
+      { "id": "pie", "title": "Distribución de ventas", "type": "Gráfico circular", "src": "/portfolio/data/pie.png" },
+      { "id": "doughnut", "title": "Gastos de negocio", "type": "Gráfico de dona", "src": "/portfolio/data/doughnut.png" },
+      { "id": "vertical", "title": "Resumen mensual del negocio", "type": "Gráfico de barras verticales", "src": "/portfolio/data/verticalbarchart.png" }
+    ]
+  }
+}

@@ -1,375 +1,516 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Code2 } from 'lucide-react';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { techStack } from '@/lib/data/techstack';
+import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { FaRobot } from "react-icons/fa6";
+import {
+    SiFigma,
+    SiHubspot,
+    SiNextdotjs,
+    SiReact,
+    SiChartdotjs,
+    SiGithub,
+    SiPostgresql,
+    SiDotnet,
+    SiMysql,
+    SiMeta,
+    SiWoocommerce,
+    SiMake,
+} from "react-icons/si";
+import { DiMsqlServer } from "react-icons/di";
+import { HiMiniChartBar, HiPaintBrush, HiArrowLeft, HiArrowRight, HiPause, HiPlay } from "react-icons/hi2";
 
-const FIELD_HEIGHT = 600;
-const FIELD_PADDING = 18;
-const CARD_GAP = 12;
-const CARD_HEIGHT = 96;
-function createCardLayout(width) {
-  const columns = width >= 720 ? 3 : width >= 440 ? 3 : 2;
-  const rows = Math.ceil(techStack.length / columns);
-  const cardWidth = Math.min(190, (width - FIELD_PADDING * 2 - CARD_GAP * (columns - 1)) / columns);
-  const gridWidth = columns * cardWidth + (columns - 1) * CARD_GAP;
-  const rowGap = rows > 1 ? (FIELD_HEIGHT - FIELD_PADDING * 2 - rows * CARD_HEIGHT) / (rows - 1) : 0;
-  const startX = (width - gridWidth) / 2;
+const techTools = [
+    {
+        name: "Figma",
+        slogan: "Interfaces With Intent",
+        Icon: SiFigma,
+        color: "#F24E1E",
+        position: "left-[3%] top-[3%]",
+        x: 12,
+        y: -16,
+        rotate: 3,
+        duration: 5.8,
+    },
+    {
+        name: "CapCut",
+        slogan: "Stories In Motion",
+        imageSrc: "/hero/tech/capcut.svg",
+        position: "left-[27%] top-[1%]",
+        x: -9,
+        y: 14,
+        rotate: -2,
+        duration: 6.3,
+    },
+    {
+        name: "KlingAI",
+        slogan: "Generative Visual Craft",
+        imageSrc: "/hero/tech/kling.svg",
+        position: "left-[43%] top-[9%]",
+        x: 8,
+        y: 12,
+        rotate: 2,
+        duration: 6.0,
+    },
+    {
+        name: "HubSpot",
+        slogan: "Smarter Customer Journeys",
+        Icon: SiHubspot,
+        color: "#FF7A59",
+        position: "right-[43%] top-[9%]",
+        x: -8,
+        y: -12,
+        rotate: -2,
+        duration: 6.5,
+    },
+    {
+        name: "Next.js",
+        slogan: "High-Performance Web Apps",
+        Icon: SiNextdotjs,
+        color: "var(--tech-logo-color)",
+        usesThemeColor: true,
+        position: "right-[27%] top-[1%]",
+        x: 10,
+        y: 15,
+        rotate: -2,
+        duration: 6.6,
+    },
+    {
+        name: "React.js",
+        slogan: "Responsive Digital Experiences",
+        Icon: SiReact,
+        color: "#61DAFB",
+        position: "right-[3%] top-[3%]",
+        x: -13,
+        y: -12,
+        rotate: 4,
+        duration: 5.2,
+    },
+    {
+        name: "Chart.js",
+        slogan: "Clearer Data Stories",
+        Icon: SiChartdotjs,
+        color: "#FF6384",
+        position: "left-[2%] top-[25%]",
+        x: 14,
+        y: 10,
+        rotate: -3,
+        duration: 7.1,
+    },
+    {
+        name: "Canva",
+        slogan: "On-Brand Visual Content",
+        imageSrc: "/hero/tech/canva.svg",
+        position: "left-[16%] top-[19%]",
+        x: 11,
+        y: 12,
+        rotate: 3,
+        duration: 6.4,
+    },
+    {
+        name: "GitHub",
+        slogan: "Collaborative Code Delivery",
+        Icon: SiGithub,
+        color: "var(--heading-color)",
+        position: "right-[16%] top-[19%]",
+        x: -12,
+        y: -11,
+        rotate: -3,
+        duration: 5.5,
+    },
+    {
+        name: "PostgreSQL",
+        slogan: "Relational Data Engine",
+        Icon: SiPostgresql,
+        color: "#4169E1",
+        position: "right-[2%] top-[25%]",
+        x: -10,
+        y: 15,
+        rotate: 2,
+        duration: 6.2,
+    },
+    {
+        name: ".NET",
+        slogan: "Reliable Business Systems",
+        Icon: SiDotnet,
+        color: "#512BD4",
+        position: "left-[1%] top-[47%]",
+        x: 11,
+        y: -13,
+        rotate: 3,
+        duration: 5.6,
+    },
+    {
+        name: "Power BI",
+        slogan: "Actionable Business Insight",
+        Icon: HiMiniChartBar,
+        color: "#F2C811",
+        position: "right-[1%] top-[47%]",
+        x: 10,
+        y: -14,
+        rotate: 3,
+        duration: 5.4,
+    },
+    {
+        name: "MySQL",
+        slogan: "Structured Data Foundations",
+        Icon: SiMysql,
+        color: "#4479A1",
+        position: "left-[2%] bottom-[26%]",
+        x: 13,
+        y: 12,
+        rotate: -3,
+        duration: 7.3,
+    },
+    {
+        name: "SQL Server",
+        slogan: "Enterprise Data Control",
+        Icon: DiMsqlServer,
+        color: "#CC2927",
+        position: "right-[2%] bottom-[26%]",
+        x: -13,
+        y: 11,
+        rotate: -2,
+        duration: 6.9,
+    },
+    {
+        name: "Meta Suite",
+        slogan: "Connected Audience Growth",
+        Icon: SiMeta,
+        color: "#0866FF",
+        position: "left-[16%] bottom-[19%]",
+        x: 11,
+        y: 13,
+        rotate: -3,
+        duration: 6.7,
+    },
+    {
+        name: "WooCommerce",
+        slogan: "Flexible Storefront Growth",
+        Icon: SiWoocommerce,
+        color: "#96588A",
+        position: "right-[16%] bottom-[19%]",
+        x: -12,
+        y: -10,
+        rotate: 2,
+        duration: 5.9,
+    },
+    {
+        name: "Illustrator",
+        slogan: "Distinctive Brand Assets",
+        Icon: HiPaintBrush,
+        color: "#FF9A00",
+        position: "left-[3%] bottom-[3%]",
+        x: 10,
+        y: -14,
+        rotate: 2,
+        duration: 5.7,
+    },
+    {
+        name: "React Native",
+        slogan: "Native Mobile Reach",
+        Icon: SiReact,
+        color: "#61DAFB",
+        position: "left-[27%] bottom-[1%]",
+        x: -11,
+        y: -10,
+        rotate: 4,
+        duration: 6.1,
+    },
+    {
+        name: "Make",
+        slogan: "Streamlined Repeatable Work",
+        Icon: SiMake,
+        color: "#6D00CC",
+        position: "right-[27%] bottom-[1%]",
+        x: 12,
+        y: 14,
+        rotate: -2,
+        duration: 7.4,
+    },
+    {
+        name: "N8N",
+        slogan: "Connected Workflow Automation",
+        Icon: FaRobot,
+        color: "#EA4B71",
+        position: "left-[43%] bottom-[9%]",
+        x: -8,
+        y: -12,
+        rotate: 2,
+        duration: 6.8,
+    },
+];
 
-  return {
-    width,
-    positions: techStack.map((_, index) => {
-      const column = index % columns;
-      const row = Math.floor(index / columns);
+const slides = [
+    { src: "/hero/1.jpg", width: 754, height: 800 },
+    { src: "/hero/2.jpg", width: 1230, height: 800 },
+    { src: "/hero/3.jpg", width: 1200, height: 800 },
+    { src: "/hero/4.jpg", width: 1200, height: 800 },
+    { src: "/hero/5.jpg", width: 1334, height: 800 },
+    { src: "/hero/6.jpg", width: 1382, height: 1080 },
+    { src: "/hero/7.jpg", width: 533, height: 800 },
+];
 
-      return {
-        x: startX + column * (cardWidth + CARD_GAP),
-        y: FIELD_PADDING + row * (CARD_HEIGHT + rowGap),
-        rotate: ((index % 3) - 1) * 2,
-        width: cardWidth,
-        hiddenX: width / 2 - cardWidth / 2 + ((index % 3) - 1) * 8,
-        hiddenY: FIELD_HEIGHT / 2 - CARD_HEIGHT / 2 + ((index % 2) - 0.5) * 10,
-      };
-    }),
-  };
-}
+const slideVariants = {
+    initial: { opacity: 0, scale: 1.025 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.99 },
+};
 
-function FloatingTechCard({ item, index, Icon, iconColor, initialPosition, fieldWidth, isDragging, isRevealed, onDragStart, onDragEnd }) {
-  const maxX = Math.max(FIELD_PADDING, fieldWidth - initialPosition.width - FIELD_PADDING);
-  const maxY = FIELD_HEIGHT - CARD_HEIGHT - FIELD_PADDING;
+export default function Hero({ t = {}, language }) {
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(true);
+    const stackRef = useRef(null);
+    const shouldReduceMotion = useReducedMotion();
 
-  const targetX = Math.min(initialPosition.x, maxX);
-  const targetY = Math.min(initialPosition.y, maxY);
-  const hiddenX = Math.min(initialPosition.hiddenX ?? fieldWidth / 2 - initialPosition.width / 2, maxX);
-  const hiddenY = Math.min(initialPosition.hiddenY ?? FIELD_HEIGHT / 2 - CARD_HEIGHT / 2, maxY);
+    const title = t.title || "Digital work that moves your business forward.";
+    const subtitle =
+        t.subtitle ||
+        "Design, development, data, and automation that turn ambitious ideas into dependable systems.";
 
-  const floatDuration = 6.8 + (index % 4) * 1.2;
-  const floatDelay = (index % 5) * 0.45 + 4.2;
-  const floatYOffset = 4 + (index % 3) * 1.4;
-  const floatXOffset = 2.6 + (index % 2) * 1.2;
+    const stackBadgeTextClass =
+        language === "es"
+            ? "font-sans text-base font-bold uppercase leading-none tracking-[0.08em] text-heading-color [text-shadow:0_1px_0_var(--tech-card-highlight),0_-1px_0_var(--tech-card-edge)] sm:text-xl"
+            : "font-sans text-xl font-bold uppercase leading-none tracking-[0.16em] text-heading-color [text-shadow:0_1px_0_var(--tech-card-highlight),0_-1px_0_var(--tech-card-edge)] sm:text-3xl";
 
-  return (
-    <motion.div
-      drag
-      dragConstraints={{
-        left: FIELD_PADDING,
-        right: maxX,
-        top: FIELD_PADDING,
-        bottom: maxY,
-      }}
-      dragElastic={0.5}
-      dragMomentum={true}
-      dragTransition={{ power: 0.34, timeConstant: 240, bounceStiffness: 500, bounceDamping: 12, restDelta: 0.5 }}
-      initial={{
-        x: hiddenX,
-        y: hiddenY,
-        scale: 0.86,
-        opacity: 0,
-        rotate: 0,
-      }}
-      animate={isRevealed ? {
-        x: [targetX, targetX + floatXOffset, targetX - floatXOffset, targetX],
-        y: [targetY, targetY - floatYOffset, targetY + floatYOffset, targetY],
-        rotate: [initialPosition.rotate, initialPosition.rotate + 2, initialPosition.rotate - 2, initialPosition.rotate],
-        scale: 1,
-        opacity: 1,
-      } : {
-        x: hiddenX,
-        y: hiddenY,
-        rotate: 0,
-        scale: 0.86,
-        opacity: 0,
-      }}
-      transition={isRevealed ? {
-        x: {
-          duration: 5.2,
-          ease: 'easeOut',
-          repeat: Infinity,
-          repeatType: 'mirror',
-          times: [0, 0.33, 0.66, 1],
-          delay: floatDelay,
-        },
-        y: {
-          duration: floatDuration,
-          ease: 'easeInOut',
-          repeat: Infinity,
-          repeatType: 'mirror',
-          times: [0, 0.33, 0.66, 1],
-          delay: floatDelay,
-        },
-        rotate: {
-          duration: floatDuration * 1.2,
-          ease: 'easeInOut',
-          repeat: Infinity,
-          repeatType: 'mirror',
-          delay: floatDelay,
-        },
-        default: {
-          duration: 4.2,
-          ease: 'easeOut',
-          delay: index * 0.1,
-        },
-      } : {
-        x: { duration: 0.45, ease: 'easeOut' },
-        y: { duration: 0.45, ease: 'easeOut' },
-        rotate: { duration: 0.35, ease: 'easeOut' },
-        opacity: { duration: 0.35, ease: 'easeOut' },
-        scale: { duration: 0.35, ease: 'easeOut' },
-      }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
-      onDragStart={() => onDragStart(index)}
-      onDragEnd={onDragEnd}
-      style={{
-        width: initialPosition.width,
-        height: CARD_HEIGHT,
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: isDragging ? 100 : 'auto',
-        cursor: isDragging ? 'grabbing' : 'grab',
-      }}
-      className={`tech-stack-motion-container ${isDragging ? 'is-dragging' : ''}`}
-    >
-      <div className="tech-stack-card h-full w-full rounded-xl backdrop-blur-xl backdrop-saturate-150">
-        <div className="tech-stack-card-content grid h-full grid-rows-[34px_1px_1fr] px-3 py-2 opacity-100">
-          <div className="relative flex items-center justify-center text-[var(--theme-heading)]">
-            <span className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center justify-center opacity-100" style={{ color: iconColor }}>
-              <Icon size={22} aria-hidden="true" />
-            </span>
-            <span className="tech-stack-engraved px-7 text-center text-sm font-semibold leading-tight opacity-100 mix-blend-normal">{item.name}</span>
-          </div>
-          <div className="tech-stack-divider" aria-hidden="true" />
-          <p className="flex items-center justify-start overflow-hidden px-1 text-left text-[0.65rem] font-medium leading-[1.25] opacity-100 mix-blend-normal text-[var(--theme-subheading)]">
-            {item.description}
-          </p>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
+    useEffect(() => {
+        if (!isPlaying || shouldReduceMotion) {
+            return;
+        }
 
-export default function Hero({ content }) {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [draggingIndex, setDraggingIndex] = useState(null);
-  const [revealedCards, setRevealedCards] = useState(() => new Set(techStack.map((_, index) => index)));
-  const [cardLayout, setCardLayout] = useState(null);
-  const techStackRef = useRef(null);
+        const intervalId = window.setInterval(() => {
+            setActiveSlide((currentSlide) => (currentSlide + 1) % slides.length);
+        }, 5600);
 
-  useLayoutEffect(() => {
-    const field = techStackRef.current;
-    if (!field) return undefined;
+        return () => window.clearInterval(intervalId);
+    }, [isPlaying, shouldReduceMotion]);
 
-    const updateInitialLayout = () => {
-      const { width } = field.getBoundingClientRect();
-      if (width > 0) setCardLayout(createCardLayout(width));
+    const goToSlide = (direction) => {
+        setActiveSlide((currentSlide) => (currentSlide + direction + slides.length) % slides.length);
+        setIsPlaying(false);
     };
 
-    updateInitialLayout();
-    const resizeObserver = new ResizeObserver(updateInitialLayout);
-    resizeObserver.observe(field);
+    return (
+        <section id="tech-stack" className="scroll-mt-20 overflow-hidden bg-section-alpha">
+            <div className="mx-auto grid min-h-150 max-w-[1600px] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+                <div
+                    ref={stackRef}
+                    className="relative isolate min-h-150 overflow-hidden border-b border-card-border bg-section-beta px-5 py-8 sm:px-8 lg:border-b-0 lg:border-r lg:px-10 lg:py-12"
+                >
+                    <div
+                        className="pointer-events-none absolute inset-0 -z-20"
+                        style={{
+                            backgroundImage: "var(--stack-pattern)",
+                            backgroundSize: "var(--stack-pattern-size)",
+                        }}
+                    />
+                    <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent-color/20 sm:size-80" />
+                    <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-60 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-accent-color/25 sm:size-64" />
 
-    return () => resizeObserver.disconnect();
-  }, []);
+                    <div className="tech-stack-badge pointer-events-none absolute left-1/2 top-1/2 z-40 flex size-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-tech-card-bg text-center backdrop-blur-md sm:size-48">
+                        <span className={stackBadgeTextClass}>{t.stackTitle || "Tech"}</span>
+                        <span className={`mt-1.5 ${stackBadgeTextClass}`}>{t.stackSubtitle || "Stack"}</span>
+                    </div>
 
-  const slides = useMemo(
-    () =>
-      Array.from({ length: 7 }, (_, index) => ({
-        src: `/hero/${index + 1}.jpg`,
-        alt: `Showcase ${index + 1}`,
-      })),
-    []
-  );
+                    {techTools.map(
+                        ({ name, slogan, Icon, imageSrc, color, usesThemeColor, position, x, y, rotate, duration }) => (
+                            <motion.div
+                                key={name}
+                                className={`absolute z-10 cursor-grab touch-none active:cursor-grabbing ${position}`}
+                                animate={
+                                    shouldReduceMotion
+                                        ? undefined
+                                        : {
+                                              x: [0, x, 0, -x / 2, 0],
+                                              y: [0, y, -y / 2, 0],
+                                              rotate: [0, rotate, -rotate / 2, 0],
+                                          }
+                                }
+                                transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
+                                drag
+                                dragConstraints={stackRef}
+                                dragElastic={0.12}
+                                whileDrag={{ scale: 1.12, rotate: 0, zIndex: 30 }}
+                            >
+                                <div
+                                    title={`${name}: ${slogan}`}
+                                    aria-label={name}
+                                    className="group relative flex size-30 flex-col overflow-hidden rounded-xl border border-tech-card-border bg-tech-card-bg p-3 shadow-[inset_0_1px_0_var(--tech-card-highlight),0_10px_0_-7px_var(--tech-card-edge),0_18px_24px_-16px_var(--tech-card-depth)] backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.04] hover:border-tech-card-border-hover hover:shadow-[inset_0_1px_0_var(--tech-card-highlight),0_14px_0_-8px_var(--tech-card-edge),0_24px_32px_-14px_var(--tech-card-glow)] sm:size-36 sm:p-4"
+                                >
+                                    {name === "CapCut" ? (
+                                        <span
+                                            role="img"
+                                            aria-label="CapCut logo"
+                                            className="size-8 shrink-0 bg-(--tech-logo-color) mask-[url('/hero/tech/capcut.svg')] mask-center mask-no-repeat mask-contain sm:size-8"
+                                        />
+                                    ) : imageSrc ? (
+                                        <Image
+                                            src={imageSrc}
+                                            alt={`${name} logo`}
+                                            width={32}
+                                            height={32}
+                                            className="size-8 shrink-0 object-contain"
+                                        />
+                                    ) : (
+                                        <Icon
+                                            className="size-7 shrink-0 sm:size-8"
+                                            style={{
+                                                color: usesThemeColor
+                                                    ? color
+                                                    : `color-mix(in srgb, ${color} 72%, var(--text-muted) 28%)`,
+                                            }}
+                                            aria-hidden="true"
+                                        />
+                                    )}
 
-  useEffect(() => {
-    if (!isPlaying) return undefined;
-
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % slides.length);
-    }, 5000);
-
-    return () => window.clearInterval(timer);
-  }, [isPlaying, slides.length]);
-
-  if (!content) return null;
-
-  const goToSlide = (direction) => {
-    setActiveSlide((current) => {
-      if (direction === 'next') {
-        return (current + 1) % slides.length;
-      }
-
-      return (current - 1 + slides.length) % slides.length;
-    });
-  };
-
-  const badge = content.badge || 'Virtual Assistant Services';
-  const title = content.title || 'Delegate Your Tasks';
-  const subtitle = content.subtitle || 'Flexible support crafted to help your business move faster.';
-  const primaryCta = content.primaryCta || 'Get Started';
-  const secondaryCta = content.secondaryCta || 'Explore Services';
-
-  return (
-    <section className="relative overflow-hidden border-y border-[color:var(--theme-border)] bg-primary pt-0 pb-20 lg:pb-28">
-      <div className="relative mx-auto grid w-full max-w-none gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="order-2 lg:order-1">
-          <div className="bg-transparent p-0">
-            <div className="relative h-[600px] overflow-hidden p-0">
-              <div
-                ref={techStackRef}
-                className="tech-stack-field relative h-[600px] overflow-hidden rounded-2xl"
-              >
-                {/* Ambient glowing gradient blobs behind tech cards field for rich frosted blur sampling */}
-                <div className="pointer-events-none absolute -left-10 -top-10 h-64 w-64 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-30 blur-3xl" />
-                <div className="pointer-events-none absolute -bottom-10 -right-10 h-72 w-72 rounded-full bg-gradient-to-r from-blue-500 to-teal-400 opacity-30 blur-3xl" />
-                <div className="pointer-events-none absolute left-1/3 top-1/3 h-56 w-56 rounded-full bg-gradient-to-r from-amber-400 to-red-500 opacity-25 blur-3xl" />
+                                    <div className="mt-2 text-center">
+                                        <span className="block text-[0.7rem] font-bold leading-tight text-text-main sm:text-xs">
+                                            {name}
+                                        </span>
+                                        <span className="mx-auto my-2 block h-px w-4/5 bg-(--tech-card-divider) shadow-[0_1px_0_var(--tech-card-divider-highlight)]" />
+                                        <span className="line-clamp-2 block text-[0.6rem] font-medium leading-[1.2] text-text-muted sm:text-[0.65rem]">
+                                            {slogan}
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )
+                    )}
+                </div>
 
                 <div
-                  className="tech-stack-badge pointer-events-none absolute left-1/2 top-1/2 z-50 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full border border-white/20 text-center shadow-[0_18px_48px_rgba(0,0,0,0.18),inset_0_1px_0_0_rgba(255,255,255,0.25)] sm:h-44 sm:w-44"
-                  style={{
-                    backgroundColor: 'color-mix(in srgb, var(--theme-primary) 12%, rgba(255,255,255,0.05))',
-                    backdropFilter: 'blur(30px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(30px) saturate(180%)',
-                  }}
+                    className="relative isolate h-150 overflow-hidden bg-section-beta"
+                    onMouseEnter={() => setIsPlaying(false)}
+                    onMouseLeave={() => setIsPlaying(true)}
                 >
-                  <div className="pointer-events-none flex h-full w-full items-center justify-center">
-                    <div className="flex flex-col items-center leading-none">
-                      <span className="text-[0.8rem] font-black uppercase tracking-[0.35em] text-[color:var(--theme-heading)] sm:text-[0.95rem]">
-                        TECH
-                      </span>
-                      <span className="mt-1 text-[0.8rem] font-black uppercase tracking-[0.35em] text-[color:var(--theme-heading)] sm:text-[0.95rem]">
-                        STACK
-                      </span>
+                    <AnimatePresence initial={false} mode="wait">
+                        <motion.div
+                            key={slides[activeSlide].src}
+                            className="absolute inset-y-0 right-0"
+                            variants={slideVariants}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                            transition={{ duration: shouldReduceMotion ? 0 : 0.65, ease: "easeOut" }}
+                        >
+                            <Image
+                                src={slides[activeSlide].src}
+                                alt={`Selected portfolio work, slide ${activeSlide + 1}`}
+                                width={slides[activeSlide].width}
+                                height={slides[activeSlide].height}
+                                priority={activeSlide === 0}
+                                sizes="(max-width: 1024px) 100vw, 55vw"
+                                className="h-150 w-auto max-w-none object-right"
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+
+                    <div
+                        className="pointer-events-none absolute inset-0 z-10"
+                        style={{
+                            backgroundImage: "var(--hero-overlay-pattern)",
+                            backgroundSize: "var(--stack-pattern-size)",
+                            maskImage: "var(--hero-overlay-mask)",
+                            WebkitMaskImage: "var(--hero-overlay-mask)",
+                        }}
+                    />
+                    <div
+                        className="pointer-events-none absolute inset-0 z-10"
+                        style={{ backgroundImage: "var(--hero-overlay-gradient)" }}
+                    />
+                    <div className="absolute inset-x-0 top-0 z-20 h-1 bg-accent-color" />
+
+                    <div className="absolute inset-y-0 left-0 z-20 flex w-[75%] flex-col justify-center p-6 sm:w-[58%] sm:p-10 lg:p-14">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.12 }}
+                        >
+                            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-accent-color">
+                                {t.eyebrow || "Independent digital partner"}
+                            </p>
+                            <h1 className="text-3xl font-bold leading-[1.05] text-(--hero-overlay-title) sm:text-4xl lg:text-5xl">
+                                {title}
+                            </h1>
+                            <p className="mt-5 max-w-md text-sm leading-6 text-(--hero-overlay-body) sm:text-base">
+                                {subtitle}
+                            </p>
+                            <div className="mt-7 flex flex-wrap gap-3">
+                                <a
+                                    href="#portfolio"
+                                    className="rounded-md bg-accent-color px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:opacity-90"
+                                >
+                                    {t.ctaMain || "Explore work"}
+                                </a>
+                                <a
+                                    href="#contact"
+                                    className="rounded-md border border-(--hero-overlay-control-border) px-4 py-2.5 text-sm font-bold text-(--hero-overlay-control-text) transition-colors hover:border-(--hero-overlay-control-text) hover:bg-[color-mix(in_srgb,var(--hero-overlay-control-text)_10%,transparent)]"
+                                >
+                                    {t.ctaSub || "Start a conversation"}
+                                </a>
+                            </div>
+                        </motion.div>
                     </div>
-                  </div>
-                </div>
 
-                {cardLayout && techStack.map((item, index) => {
-                  const Icon = item.icon || Code2;
-                  const iconColor = item.color || 'var(--theme-accent)';
+                    <div className="absolute bottom-5 right-5 z-30 flex items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={() => goToSlide(-1)}
+                            title="Previous slide"
+                            aria-label="Previous slide"
+                            className="flex size-9 cursor-pointer items-center justify-center rounded-md border border-(--hero-overlay-control-border) bg-[rgba(var(--hero-overlay-control-bg),0.7)] text-(--hero-overlay-control-text) backdrop-blur-sm transition-colors hover:border-(--hero-overlay-control-text)"
+                        >
+                            <HiArrowLeft className="size-4" aria-hidden="true" />
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => setIsPlaying((playing) => !playing)}
+                            title={isPlaying ? "Pause slideshow" : "Play slideshow"}
+                            aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
+                            className="flex size-9 cursor-pointer items-center justify-center rounded-md border border-(--hero-overlay-control-border) bg-[rgba(var(--hero-overlay-control-bg),0.7)] text-(--hero-overlay-control-text) backdrop-blur-sm transition-colors hover:border-(--hero-overlay-control-text)"
+                        >
+                            {isPlaying ? (
+                                <HiPause className="size-4" aria-hidden="true" />
+                            ) : (
+                                <HiPlay className="size-4" aria-hidden="true" />
+                            )}
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => goToSlide(1)}
+                            title="Next slide"
+                            aria-label="Next slide"
+                            className="flex size-9 cursor-pointer items-center justify-center rounded-md border border-(--hero-overlay-control-border) bg-[rgba(var(--hero-overlay-control-bg),0.7)] text-(--hero-overlay-control-text) backdrop-blur-sm transition-colors hover:border-(--hero-overlay-control-text)"
+                        >
+                            <HiArrowRight className="size-4" aria-hidden="true" />
+                        </button>
+                    </div>
 
-                  return (
-                    <FloatingTechCard
-                      key={item.name}
-                      item={item}
-                      index={index}
-                      Icon={Icon}
-                      iconColor={iconColor}
-                      initialPosition={cardLayout.positions[index]}
-                      fieldWidth={cardLayout.width}
-                      isDragging={draggingIndex === index}
-                      isRevealed={revealedCards.has(index)}
-                      onDragStart={(cardIndex) => {
-                        setDraggingIndex(cardIndex);
-                        setRevealedCards((current) => {
-                          const next = new Set(current);
-                          next.add(cardIndex);
-                          return next;
-                        });
-                      }}
-                      onDragEnd={() => setDraggingIndex(null)}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="order-1 lg:order-2">
-          <div className="flex h-full flex-col bg-transparent p-0 sm:p-0">
-            <div className="relative h-[600px] overflow-hidden lg:ml-auto lg:w-[calc(100%+2rem)]">
-              <div className="absolute inset-0">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeSlide}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={slides[activeSlide].src}
-                      alt={slides[activeSlide].alt}
-                      priority
-                      quality={100}
-                      width={1400}
-                      height={900}
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="absolute right-0 top-0 h-[600px] w-auto max-w-none object-cover object-right"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              <div
-                className="absolute inset-0 z-10"
-                style={{
-                  background: 'linear-gradient(90deg, var(--theme-primary) 0%, var(--theme-primary) 42%, transparent 55%, transparent 100%)',
-                }}
-              />
-
-              <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 pl-8 sm:p-8 sm:pl-10 lg:p-10 lg:pl-12">
-                <div className="flex justify-end gap-2">
-                  <button
-                    type="button"
-                    aria-label="Previous slide"
-                    onClick={() => goToSlide('prev')}
-                    className="rounded-full border p-2 transition-transform hover:-translate-y-0.5"
-                    style={{ borderColor: 'var(--theme-border)', backgroundColor: 'var(--theme-primary)', color: 'var(--theme-text)' }}
-                  >
-                    <ArrowLeft size={18} />
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Next slide"
-                    onClick={() => goToSlide('next')}
-                    className="rounded-full border p-2 transition-transform hover:-translate-y-0.5"
-                    style={{ borderColor: 'var(--theme-border)', backgroundColor: 'var(--theme-primary)', color: 'var(--theme-text)' }}
-                  >
-                    <ArrowRight size={18} />
-                  </button>
-                </div>
-
-                <div className="max-w-[18rem] sm:max-w-[20rem]">
-                  <span
-                    className="inline-flex rounded-full border px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.3em]"
-                    style={{ borderColor: 'var(--theme-border)', backgroundColor: 'var(--theme-strip)', color: 'var(--theme-accent)' }}
-                  >
-                    {badge}
-                  </span>
-                  <h2 className="mt-4 text-3xl font-semibold leading-tight text-heading sm:text-4xl">
-                    {title}
-                  </h2>
-                  <p className="mt-3 text-sm leading-7 text-subheading sm:text-base">{subtitle}</p>
-
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5"
-                      style={{ backgroundColor: 'var(--theme-accent)', color: 'var(--theme-primary)' }}
+                    <div
+                        className="absolute bottom-7 left-6 z-30 flex gap-1.5 sm:left-10"
+                        aria-label={`Slide ${activeSlide + 1} of ${slides.length}`}
                     >
-                      {primaryCta}
-                    </a>
-                    <button
-                      type="button"
-                      onClick={() => setIsPlaying((value) => !value)}
-                      className="rounded-full border px-5 py-2.5 text-sm font-semibold transition-transform hover:-translate-y-0.5"
-                      style={{ borderColor: 'var(--theme-border)', backgroundColor: 'var(--theme-primary)', color: 'var(--theme-text)' }}
-                    >
-                      {isPlaying ? 'Pause' : 'Play'}
-                    </button>
-                  </div>
+                        {slides.map((slide, index) => (
+                            <button
+                                key={slide.src}
+                                type="button"
+                                onClick={() => {
+                                    setActiveSlide(index);
+                                    setIsPlaying(false);
+                                }}
+                                aria-label={`Show slide ${index + 1}`}
+                                aria-current={index === activeSlide}
+                                className={`h-1.5 cursor-pointer rounded-full transition-all ${
+                                    index === activeSlide
+                                        ? "w-7 bg-accent-color"
+                                        : "w-1.5 bg-[color-mix(in_srgb,var(--hero-overlay-control-text)_45%,transparent)] hover:bg-(--hero-overlay-control-text)"
+                                }`}
+                            />
+                        ))}
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 }

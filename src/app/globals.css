@@ -1,187 +1,345 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   1. Tailwind CSS v4 Theme Token Mapping
+   ========================================================================== */
+@theme inline {
+  --color-body-bg: var(--body-bg);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-heading-color: var(--heading-color);
+  --color-accent-color: var(--accent-color);
+  --color-section-alpha: var(--section-alpha);
+  --color-section-beta: var(--section-beta);
+  --color-header-bg: var(--header-bg);
+  --color-header-border: var(--header-border);
+  --color-nav-link: var(--nav-link);
+  --color-nav-link-hover: var(--nav-link-hover);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-tech-card-bg: var(--tech-card-bg);
+  --color-tech-card-border: var(--tech-card-border);
+  --color-tech-card-border-hover: var(--tech-card-border-hover);
+}
+
+/* ==========================================================================
+   2. Theme Palette Definitions (Colors & Theme-Specific Gradients Only)
+   ========================================================================== */
+
+/* --- Default Theme: Warm --- */
 :root,
 [data-theme="warm"] {
-  --theme-primary: #fff8dc;
-  --theme-secondary: #fffff0;
-  --theme-accent: #d7505f;
-  --theme-text: #201a16;
-  --theme-heading: #3b2a1a;
-  --theme-subheading: #6b4f3a;
-  --theme-strip: #f1e299;
-  --theme-border: #d8c99b;
-  --theme-glass: rgba(255, 255, 255, 0.42);
-  --theme-glass-highlight: rgba(255, 255, 255, 0.72);
-  --theme-icon-contrast: #201a16;
+  --body-bg: #fff8dc;
+  --text-main: #332b2a;
+  --text-muted: #776764;
+  --heading-color: #241a19;
+  --accent-color: #d7505f;
+  --section-alpha: #fff8dc;
+  --section-beta: #fff1c7;
+  --header-bg: rgba(255, 248, 220, 0.9);
+  --header-border: rgba(215, 80, 95, 0.25);
+  --nav-link: #776764;
+  --nav-link-hover: #d7505f;
+  --header-anchor: #b23a4b;
+  --header-anchor-hover: #d7505f;
+  --header-wordmark-gradient: linear-gradient(100deg, var(--heading-color) 0%, #c58b3a 100%);
+  --card-bg: #fffdf5;
+  --card-border: rgba(215, 80, 95, 0.2);
+  --border-color: var(--card-border);
+
+  --hero-stage: #fff1c7;
+  --hero-overlay-rgb: 255, 241, 199;
+  --hero-overlay-title: #241a19;
+  --hero-overlay-body: #5e504d;
+  --hero-overlay-control-bg: 255, 241, 199;
+  --hero-overlay-control-border: rgba(36, 26, 25, 0.24);
+  --hero-overlay-control-text: #241a19;
+
+  --stack-pattern: radial-gradient(
+      58% 55% at 50% 44%,
+      color-mix(in srgb, var(--accent-color) 13%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(color-mix(in srgb, var(--heading-color) 8%, transparent) 1.5px, transparent 1.7px);
+  --stack-pattern-size: 100% 100%, 1.5rem 1.5rem;
+
+  --tech-badge-bg: rgba(255, 253, 245, 0.7);
+  --tech-badge-border: rgba(185, 37, 54, 0.62);
+  --tech-card-bg: linear-gradient(145deg, rgba(255, 253, 245, 0.96), rgba(255, 239, 197, 0.75));
+  --tech-card-border: rgba(36, 26, 25, 0.08);
+  --tech-card-border-hover: rgba(215, 80, 95, 0.4);
+  --tech-card-glow: rgba(215, 80, 95, 0.3);
+  --tech-card-edge: rgba(154, 111, 57, 0.32);
+  --tech-card-depth: rgba(79, 53, 32, 0.28);
+  --tech-card-highlight: rgba(255, 255, 255, 0.92);
+  --tech-card-divider: rgba(36, 26, 25, 0.18);
+  --tech-card-divider-highlight: rgba(255, 255, 255, 0.9);
 }
 
+/* --- Theme: Light --- */
 [data-theme="light"] {
-  --theme-primary: #ffffff;
-  --theme-secondary: #f8f7fb;
-  --theme-accent: #8c489f;
-  --theme-text: #0e0e10;
-  --theme-heading: #1a1a1d;
-  --theme-subheading: #4a4a4f;
-  --theme-strip: #f3e6f7;
-  --theme-border: #ddd8e1;
-  --theme-glass: rgba(255, 255, 255, 0.58);
-  --theme-glass-highlight: rgba(255, 255, 255, 0.86);
-  --theme-icon-contrast: #111111;
+  --body-bg: #ffffff;
+  --text-main: #1e2a38;
+  --text-muted: #647384;
+  --heading-color: #15202b;
+  --accent-color: #8c489f; /* #1677d2; */
+  --section-alpha: #ffffff;
+  --section-beta: #faf9f5;
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --header-border: rgba(22, 119, 210, 0.2);
+  --nav-link: #647384;
+  --nav-link-hover: #1677d2;
+  --header-anchor: #0d5cad;
+  --header-anchor-hover: #1677d2;
+  --header-wordmark-gradient: linear-gradient(100deg, var(--heading-color) 0%, #13a6a0 100%);
+  --card-bg: #fffdf7;
+  --card-border: rgba(22, 119, 210, 0.16);
+  --border-color: var(--card-border);
+
+  --hero-stage: #faf9f5;
+  --hero-overlay-rgb: 250, 249, 245;
+  --hero-overlay-title: #15202b;
+  --hero-overlay-body: #45576a;
+  --hero-overlay-control-bg: 250, 249, 245;
+  --hero-overlay-control-border: rgba(21, 32, 43, 0.22);
+  --hero-overlay-control-text: #15202b;
+
+  --stack-pattern: radial-gradient(
+      58% 55% at 50% 44%,
+      color-mix(in srgb, var(--accent-color) 13%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(color-mix(in srgb, var(--heading-color) 8%, transparent) 1.5px, transparent 1.7px);
+  --stack-pattern-size: 100% 100%, 1.5rem 1.5rem;
+
+  --tech-badge-bg: rgba(255, 255, 255, 0.78);
+  --tech-badge-border: rgba(22, 119, 210, 0.5);
+  --tech-card-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 250, 0.84));
+  --tech-card-border: rgba(21, 32, 43, 0.09);
+  --tech-card-border-hover: rgba(22, 119, 210, 0.42);
+  --tech-card-glow: rgba(22, 119, 210, 0.24);
+  --tech-card-edge: rgba(91, 111, 130, 0.28);
+  --tech-card-depth: rgba(21, 32, 43, 0.22);
+  --tech-card-highlight: rgba(255, 255, 255, 0.92);
+  --tech-card-divider: rgba(21, 32, 43, 0.16);
+  --tech-card-divider-highlight: rgba(255, 255, 255, 0.9);
 }
 
+/* --- Theme: Dark --- */
 [data-theme="dark"] {
-  --theme-primary: #202b31;
-  --theme-secondary: #12191d;
-  --theme-accent: #ffd700;
-  --theme-text: #fffdd0;
-  --theme-heading: #f5f0dc;
-  --theme-subheading: #c9c2a8;
-  --theme-strip: #2e3d45;
-  --theme-border: #53646c;
-  --theme-glass: rgba(46, 61, 69, 0.58);
-  --theme-glass-highlight: rgba(255, 255, 255, 0.2);
-  --theme-icon-contrast: #fffdd0;
+  --body-bg: #1a1614;
+  --text-main: #f1e5d2;
+  --text-muted: #c7ae93;
+  --heading-color: #fff7e7;
+  --accent-color: #d99a4e;
+  --section-alpha: #1a1614;
+  --section-beta: #231f1d;
+  --header-bg: rgba(26, 22, 20, 0.9);
+  --header-border: rgba(217, 154, 78, 0.25);
+  --nav-link: #d0b598;
+  --nav-link-hover: #fff7e7;
+  --header-anchor: #f0b866;
+  --header-anchor-hover: #fff7e7;
+  --header-wordmark-gradient: linear-gradient(100deg, var(--heading-color) 0%, #c95c55 100%);
+  --card-bg: #412417;
+  --card-border: rgba(255, 247, 231, 0.12);
+  --border-color: var(--card-border);
+
+  --hero-stage: #231f1d;
+  --hero-overlay-rgb: 35, 31, 29;
+  --hero-overlay-title: #fff7e7;
+  --hero-overlay-body: #d6be9f;
+  --hero-overlay-control-bg: 35, 31, 29;
+  --hero-overlay-control-border: rgba(255, 247, 231, 0.3);
+  --hero-overlay-control-text: #fff7e7;
+
+  --stack-pattern: repeating-linear-gradient(96deg, rgba(255, 238, 218, 0.035) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(88deg, rgba(0, 0, 0, 0.2) 0 2px, transparent 2px 24px),
+    linear-gradient(180deg, #2a2522 0%, #231f1d 55%, #1a1614 100%);
+  --stack-pattern-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+
+  --tech-badge-bg: rgba(57, 31, 19, 0.78);
+  --tech-badge-border: rgba(201, 65, 67, 0.72);
+  --tech-card-bg: linear-gradient(145deg, rgba(84, 49, 30, 0.84), rgba(45, 23, 14, 0.8));
+  --tech-card-border: rgba(255, 247, 231, 0.14);
+  --tech-card-border-hover: rgba(217, 154, 78, 0.55);
+  --tech-card-glow: rgba(217, 154, 78, 0.4);
+  --tech-card-edge: rgba(15, 7, 4, 0.88);
+  --tech-card-depth: rgba(0, 0, 0, 0.65);
+  --tech-card-highlight: rgba(255, 242, 216, 0.2);
+  --tech-card-divider: rgba(0, 0, 0, 0.52);
+  --tech-card-divider-highlight: rgba(255, 242, 216, 0.18);
+
+  --wood-pattern: repeating-linear-gradient(7deg, rgba(255, 235, 199, 0.024) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(93deg, rgba(0, 0, 0, 0.1) 0 2px, transparent 2px 16px);
 }
 
-@theme inline {
-  --color-primary: var(--theme-primary);
-  --color-secondary: var(--theme-secondary);
-  --color-accent: var(--theme-accent);
-  --color-text: var(--theme-text);
-  --color-heading: var(--theme-heading);
-  --color-subheading: var(--theme-subheading);
-  --color-strip: var(--theme-strip);
-  --color-border: var(--theme-border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ==========================================================================
+   3. Universal Dynamic Structures (Extracted from Themes)
+   ========================================================================== */
+:root {
+  /* Overlay masks & gradients derived from active theme RGB variables */
+  --hero-overlay-pattern: none;
+  --hero-overlay-mask: linear-gradient(90deg, #000 0%, #000 50%, transparent 50%, transparent 100%);
+  --hero-overlay-gradient: linear-gradient(
+    90deg,
+    rgba(var(--hero-overlay-rgb), 1) 0%,
+    rgba(var(--hero-overlay-rgb), 0.75) 50%,
+    rgba(var(--hero-overlay-rgb), 0) 75%,
+    rgba(var(--hero-overlay-rgb), 0) 100%
+  );
+
+  /* Universal logo mix rule */
+  --tech-logo-color: color-mix(in srgb, var(--heading-color) 72%, var(--text-muted) 28%);
 }
 
-@utility bg-primary {
-  background-color: var(--theme-primary);
-}
-
-@utility bg-secondary {
-  background-color: var(--theme-secondary);
-}
-
-@utility bg-accent {
-  background-color: var(--theme-accent);
-}
-
-@utility text-content {
-  color: var(--theme-text);
-}
-
-@utility text-heading {
-  color: var(--theme-heading);
-}
-
-@utility text-subheading {
-  color: var(--theme-subheading);
-}
-
-@utility border-theme {
-  border-color: var(--theme-border);
+/* ==========================================================================
+   4. Universal Structural Base & Component Classes
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 body {
-  background-color: var(--theme-primary);
-  color: var(--theme-text);
-  font-family: var(--font-geist-sans), sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: var(--body-bg);
+  background-image: var(--wood-pattern, none);
+  color: var(--text-main);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.tech-stack-field {
-  background-color: var(--theme-primary);
+/* Header */
+.site-header {
+  contain: layout;
+  will-change: transform, height;
 }
 
-.tech-stack-card,
-.tech-stack-badge {
-  border: 1px solid color-mix(in srgb, var(--theme-border) 40%, var(--theme-glass-highlight) 60%);
-  background: color-mix(in srgb, var(--theme-glass) 55%, transparent);
-  box-shadow: 0 16px 36px color-mix(in srgb, var(--theme-text) 16%, transparent), inset 0 1px 0 var(--theme-glass-highlight), inset 0 0 0 1px color-mix(in srgb, var(--theme-glass-highlight) 25%, transparent);
+.header-wordmark {
+  background: var(--header-wordmark-gradient);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
-.tech-stack-card::before,
-.tech-stack-badge::before {
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: linear-gradient(115deg, color-mix(in srgb, var(--theme-glass-highlight) 48%, transparent) 0%, transparent 36%, color-mix(in srgb, var(--theme-text) 12%, transparent) 100%);
-  content: '';
-  pointer-events: none;
-}
-
-.tech-stack-card::after {
-  position: absolute;
-  inset: 8px;
-  border-radius: inherit;
-  box-shadow: inset 0 0 24px color-mix(in srgb, var(--theme-glass-highlight) 18%, transparent), inset 0 0 0 1px color-mix(in srgb, var(--theme-glass-highlight) 20%, transparent);
-  content: '';
-  pointer-events: none;
-}
-
-.tech-stack-card > *,
-.tech-stack-badge > * {
+.header-anchor-link {
   position: relative;
-  z-index: 1;
+  color: var(--heading-color);
+  transition: color 0.18s, transform 0.18s;
 }
 
-.tech-stack-card-content {
-  color: var(--theme-text);
+.header-anchor-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.18s;
 }
 
-.tech-stack-divider {
-  background: linear-gradient(90deg, transparent, var(--theme-border) 12%, var(--theme-border) 88%, transparent);
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--theme-glass-highlight) 45%, transparent);
+.header-anchor-link:hover,
+.header-anchor-link:focus-visible {
+  color: var(--heading-color);
+  transform: translateY(-1px);
 }
 
-.tech-stack-card {
-  position: relative;
-  overflow: hidden;
-  touch-action: none;
-  user-select: none;
-  background: color-mix(in srgb, var(--theme-glass) 24%, transparent);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  transition: box-shadow 180ms ease;
+.header-anchor-link:hover::after,
+.header-anchor-link:focus-visible::after {
+  transform: scaleX(1);
 }
 
+/* Tech stack badge (3D & Depth Effects) */
 .tech-stack-badge {
-  z-index: 50;
-  overflow: hidden;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--theme-glass-highlight) 72%, rgba(255, 255, 255, 0.24)) 0%, color-mix(in srgb, var(--theme-glass) 84%, rgba(255, 255, 255, 0.16)) 100%);
-  border: 1px solid color-mix(in srgb, var(--theme-glass-highlight) 48%, var(--theme-border) 52%);
-  box-shadow: 0 20px 44px color-mix(in srgb, var(--theme-text) 18%, transparent), inset 0 1px 0 color-mix(in srgb, var(--theme-glass-highlight) 70%, transparent), inset 0 -8px 20px color-mix(in srgb, var(--theme-text) 12%, transparent);
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  cursor: default;
+  box-shadow: inset 0 1px 0 var(--tech-card-highlight), 0 10px 0 -7px var(--tech-card-edge),
+    0 18px 24px -16px var(--tech-card-depth);
+  transition: box-shadow 0.18s, filter 0.18s;
 }
 
-.tech-stack-motion-container {
-  touch-action: none;
-  user-select: none;
+/* FAQ flip cards (Glassmorphism & 3D Transforms) */
+.faq-card {
+  perspective: 1200px;
+  isolation: isolate;
+  transform: translateZ(0);
+  box-shadow: 0 18px 30px -22px color-mix(in srgb, var(--heading-color) 70%, transparent),
+    0 8px 0 -5px color-mix(in srgb, var(--accent-color) 32%, transparent);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.tech-stack-motion-container.is-dragging .tech-stack-card {
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
-  box-shadow: 0 22px 42px color-mix(in srgb, var(--theme-text) 22%, transparent), inset 0 1px 0 var(--theme-glass-highlight), inset 0 0 0 1px color-mix(in srgb, var(--theme-glass-highlight) 22%, transparent);
+.faq-card:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 0 24px 38px -20px color-mix(in srgb, var(--heading-color) 75%, transparent),
+    0 10px 0 -5px color-mix(in srgb, var(--accent-color) 45%, transparent);
 }
 
-.tech-stack-motion-container:hover .tech-stack-card {
-  cursor: grab;
-  cursor: -webkit-grab;
+.faq-card-inner {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.5s;
 }
 
-.tech-stack-title {
+.faq-card-face {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: column;
-  color: var(--theme-heading);
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 800;
-  line-height: 0.82;
-  letter-spacing: 0.08em;
-  text-shadow: 1px 1px 0 var(--theme-glass-highlight), -1px -1px 0 var(--theme-border);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
-.tech-stack-engraved {
-  text-shadow: 1px 1px 0 var(--theme-glass-highlight), -0.5px -0.5px 0 var(--theme-border);
+.faq-card-front {
+  transform: translateZ(1px) rotateY(0deg);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -12px 24px color-mix(in srgb, var(--heading-color) 6%, transparent);
+}
+
+.faq-card-back {
+  opacity: 0;
+  transform: translateZ(1px) rotateY(180deg);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -12px 24px color-mix(in srgb, var(--accent-color) 8%, transparent);
+}
+
+.faq-card-is-flipped .faq-card-inner {
+  transform: rotateY(180deg);
+}
+
+.faq-card-is-flipped .faq-card-front {
+  opacity: 0;
+}
+
+.faq-card-is-flipped .faq-card-back {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .faq-card:hover .faq-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .faq-card:hover .faq-card-front {
+    opacity: 0;
+  }
+
+  .faq-card:hover .faq-card-back {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

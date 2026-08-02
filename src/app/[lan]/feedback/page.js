@@ -1,9 +1,11 @@
-import Feedback from './feedback';
+import Feedback from './feedback'
+import { getDictionary } from '@/lib/content/i18n'
 
-const page = () => {
-    return (
-        <Feedback />
-    )
+const Page = async ({ params }) => {
+    const { lan } = await params
+    const dictionary = await getDictionary(lan, 'feedback')
+
+    return <Feedback content={dictionary.feedback} />
 }
 
-export default page
+export default Page
