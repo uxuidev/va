@@ -10,6 +10,9 @@
     "tagline": "Lo que ofrecemos",
     "heading": "Soluciones virtuales integrales",
     "description": "Soporte técnico y administrativo personalizado diseñado para ahorrarle tiempo y optimizar sus operaciones diarias.",
+    "technologyLabel": "Herramientas y tecnologías",
+    "priceLabel": "Plan anual",
+    "ctaLabel": "Hablemos de su proyecto",
     "items": [
       {
         "id": "admin",
@@ -34,6 +37,10 @@
     ]
   },
   "testimonial": {
+    "badge": "Voces de clientes",
+    "title": "La confianza de quienes construyen cosas importantes.",
+    "description": "Algunas palabras de clientes que han trabajado con nosotros.",
+    "ratingLabel": "calificación",
     "tagline": "Éxito de nuestros clientes",
     "heading": "Confianza de empresas en crecimiento",
     "items": [
@@ -63,15 +70,70 @@
       { "name": "Workana", "alt": "Plataforma Workana" }
     ]
   },
+  "partners": {
+    "badge": "Programa para Agencias",
+    "heading": "Amplíe la capacidad de su agencia.",
+    "description": "Cuéntenos como su equipo de ejecución para desarrollo, automatización y diseño, con condiciones que mejoran a medida que crece su volumen.",
+    "benefitsHeading": "Diseñado para una entrega confiable.",
+    "ctaLabel": "Ser socio",
+    "ctaDescription": "Cuéntenos sus necesidades de entrega y crearemos la alianza adecuada para el flujo de sus clientes.",
+    "tiers": [
+      {
+        "id": "on-demand",
+        "label": "Ocasional / Bajo Demanda",
+        "title": "Soporte confiable cuando falta capacidad.",
+        "description": "Una opción flexible para proyectos puntuales, tareas especializadas y trabajo adicional.",
+        "features": ["Tarifas estándar por proyecto", "Sin compromiso requerido", "Entrega y respuesta rápidas"]
+      },
+      {
+        "id": "growth",
+        "label": "Socio de Crecimiento",
+        "badge": "Más flexible",
+        "featured": true,
+        "title": "Ejecución constante para una demanda creciente.",
+        "description": "Para negocios con trabajo mensual estable que necesitan una extensión confiable de su equipo.",
+        "features": ["Precios preferenciales para socios", "Cola de ejecución prioritaria", "Capacidad mensual predecible"]
+      },
+      {
+        "id": "white-label",
+        "label": "Agencia / Marca Blanca",
+        "title": "Un equipo dedicado detrás de su marca.",
+        "description": "Entrega full-stack para agencias que desean ampliar su capacidad sin aumentar sus costos internos.",
+        "features": ["Condiciones contractuales exclusivas", "Entrega completa de marca blanca", "NDA estricto y equipo de desarrollo dedicado"]
+      }
+    ],
+    "benefits": [
+      { "title": "Ejecución de Marca Blanca", "description": "Trabajamos entre bastidores bajo su marca para que conserve toda la relación con sus clientes." },
+      { "title": "NDAs Estrictos", "description": "Confidencialidad total y protección de propiedad intelectual para su agencia y cada proyecto." },
+      { "title": "Respuesta SLA Garantizada", "description": "La cola prioritaria y la comunicación rápida mantienen los proyectos avanzando con claridad." },
+      { "title": "Retenedores Mensuales Flexibles", "description": "Condiciones adaptables para escalar junto con el ritmo de su cartera de clientes." }
+    ]
+  },
   "contact": {
+    "eyebrow": "Contacto",
     "heading": "Comencemos",
     "subheading": "¿Listo para liberar tu tiempo? Envíanos un mensaje y hablemos de tus necesidades.",
+    "emailLabel": "Escríbenos",
+    "whatsAppLabel": "WhatsApp",
+    "locationLabel": "Ubicación de la oficina",
+    "mapTitle": "Bismillah Housing Scheme Main Park, Lahore",
+    "requiredLabel": "obligatorio",
+    "requiredError": "es obligatorio.",
+    "emailError": "Introduce una dirección de correo válida.",
+    "validationError": "Corrige los campos resaltados.",
+    "successMessage": "Gracias. Tu mensaje fue enviado.",
+    "errorMessage": "No podemos enviar tu mensaje en este momento.",
+    "submittingLabel": "Enviando...",
     "form": {
       "nameLabel": "Nombre completo",
       "namePlaceholder": "Juan Pérez",
       "emailLabel": "Correo electrónico",
       "emailPlaceholder": "juan@empresa.com",
-      "messageLabel": "Detalles del proyecto",
+      "countryLabel": "País",
+      "countryPlaceholder": "Pakistán",
+      "phoneLabel": "Número de teléfono",
+      "phonePlaceholder": "+92 300 1234567",
+      "messageLabel": "Mensaje",
       "messagePlaceholder": "Cuéntanos cómo podemos ayudarte...",
       "submitButton": "Enviar mensaje"
     }

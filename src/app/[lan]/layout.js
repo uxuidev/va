@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { getDictionary, i18n } from "@/lib/content/i18n";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -26,6 +27,7 @@ export default async function RootLayout({ children, params }) {
   const { lan } = await params;
 
   const dict = await getDictionary(lan, "home");
+  const footerDictionary = await getDictionary(lan, "footer");
 
   return (
     <html
@@ -35,6 +37,7 @@ export default async function RootLayout({ children, params }) {
       <body className="min-h-full flex flex-col bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
         <Header locale={lan} navContent={dict.nav} />
         <div className="flex-1">{children}</div>
+        <Footer locale={lan} t={footerDictionary} />
       </body>
     </html>
   );

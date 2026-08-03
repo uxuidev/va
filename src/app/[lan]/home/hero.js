@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { FaRobot } from "react-icons/fa6";
+import { HiArrowLeft, HiArrowRight, HiPause, HiPlay } from "react-icons/hi2";
+import {techTools} from "@/lib/data/techstack";
+/* import { FaRobot } from "react-icons/fa6";
 import {
     SiFigma,
     SiHubspot,
@@ -240,7 +242,7 @@ const techTools = [
         rotate: 2,
         duration: 6.8,
     },
-];
+]; */
 
 const slides = [
     { src: "/hero/1.jpg", width: 754, height: 800 },

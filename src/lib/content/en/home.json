@@ -10,6 +10,9 @@
     "tagline": "What We Offer",
     "heading": "Comprehensive Virtual Solutions",
     "description": "Customized administrative and technical support designed to save you time and streamline your daily operations.",
+    "technologyLabel": "Tools and technologies",
+    "priceLabel": "Annual plan",
+    "ctaLabel": "Discuss your project",
     "items": [
       {
         "id": "admin",
@@ -34,6 +37,10 @@
     ]
   },
   "testimonial": {
+    "badge": "Client Voices",
+    "title": "Trusted by people building important things.",
+    "description": "A few words from clients who have partnered with us.",
+    "ratingLabel": "rating",
     "tagline": "Client Success",
     "heading": "Trusted by Growing Businesses",
     "items": [
@@ -63,15 +70,70 @@
       { "name": "Workana", "alt": "Workana Platform" }
     ]
   },
+  "partners": {
+    "badge": "Agency Partner Program",
+    "heading": "Scale your agency capacity.",
+    "description": "Bring us in as your delivery team for development, automation, and design work - with partnership terms that improve as your volume grows.",
+    "benefitsHeading": "Built for trusted delivery.",
+    "ctaLabel": "Become a partner",
+    "ctaDescription": "Tell us about your delivery needs and we will shape the right partnership around your client pipeline.",
+    "tiers": [
+      {
+        "id": "on-demand",
+        "label": "Occasional / On-Demand",
+        "title": "Reliable support when capacity gets tight.",
+        "description": "A flexible option for one-off projects, specialist tasks, and overflow work.",
+        "features": ["Standard project rates", "No commitment required", "Fast delivery and turnaround"]
+      },
+      {
+        "id": "growth",
+        "label": "Growth Partner",
+        "badge": "Most flexible",
+        "featured": true,
+        "title": "Consistent execution for growing demand.",
+        "description": "For businesses with steady monthly work that need a dependable extension of their team.",
+        "features": ["Preferential partner pricing", "Priority execution queue", "Predictable monthly capacity"]
+      },
+      {
+        "id": "white-label",
+        "label": "Agency / White-Label",
+        "title": "A dedicated team behind your brand.",
+        "description": "Full-stack delivery for agencies that want to scale service capacity without growing internal overhead.",
+        "features": ["Exclusive top-tier contract terms", "Full white-label delivery", "Strict NDA and dedicated developer team"]
+      }
+    ],
+    "benefits": [
+      { "title": "White-Label Execution", "description": "We work behind the scenes under your brand, so you retain full client ownership." },
+      { "title": "Strict NDAs", "description": "Complete confidentiality and IP protection for your agency and every client project." },
+      { "title": "Guaranteed SLA Response", "description": "Priority queue routing and fast communication keep projects moving without ambiguity." },
+      { "title": "Flexible Monthly Retainers", "description": "Adaptable terms built to scale smoothly with the rhythm of your client pipeline." }
+    ]
+  },
   "contact": {
+    "eyebrow": "Contact",
     "heading": "Let's Get Started",
     "subheading": "Ready to free up your schedule? Send us a message and let's discuss your requirements.",
+    "emailLabel": "Email us",
+    "whatsAppLabel": "WhatsApp",
+    "locationLabel": "Office location",
+    "mapTitle": "Bismillah Housing Scheme Main Park, Lahore",
+    "requiredLabel": "required",
+    "requiredError": "is required.",
+    "emailError": "Enter a valid email address.",
+    "validationError": "Please correct the highlighted fields.",
+    "successMessage": "Thanks. Your message has been sent.",
+    "errorMessage": "Unable to send your message right now.",
+    "submittingLabel": "Sending...",
     "form": {
       "nameLabel": "Full Name",
       "namePlaceholder": "John Doe",
       "emailLabel": "Email Address",
       "emailPlaceholder": "john@company.com",
-      "messageLabel": "Project Details",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Pakistan",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "+92 300 1234567",
+      "messageLabel": "Message",
       "messagePlaceholder": "Tell us how we can help...",
       "submitButton": "Send Message"
     }

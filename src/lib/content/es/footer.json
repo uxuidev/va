@@ -1,0 +1,32 @@
+{
+	"brand": "BITWORK TECH",
+	"tagline": "Un aliado técnico para equipos ambiciosos, desde interfaces cuidadas hasta automatización confiable.",
+	"serviceDetails": "Ofrecemos asistencia virtual confiable para mantener las operaciones diarias organizadas y ágiles. Desde el soporte administrativo hasta los flujos técnicos, ayudamos a los equipos a cuidar su tiempo y enfocarse en crecer.",
+	"backToTop": "Volver arriba",
+	"navigation": "Explorar",
+	"services": "Capacidades",
+	"connect": "Conecta",
+	"home": "Inicio",
+	"portfolio": "Portafolio",
+	"servicesLink": "Servicios",
+	"partners": "Socios",
+	"contact": "Contacto",
+	"webDevelopment": "Desarrollo Web",
+	"appDevelopment": "Desarrollo de Apps",
+	"aiAutomation": "Automatización con IA",
+	"uiUx": "Diseño UI / UX",
+	"dataAnalytics": "Análisis de Datos",
+	"hosting": "Hosting y Mantenimiento",
+	"email": "Correo",
+	"whatsApp": "WhatsApp",
+	"privacy": "Política de Privacidad",
+	"terms": "Términos de Servicio",
+	"copyright": "Todos los derechos reservados.",
+	"language": "Idioma",
+	"theme": "Tema",
+	"themeNames": {
+		"light": "Claro",
+		"warm": "Cálido",
+		"dark": "Oscuro"
+	}
+}

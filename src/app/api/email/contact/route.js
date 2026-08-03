@@ -37,7 +37,7 @@ function createTransporter() {
 }
 
 // Helper function to sync general contact form submissions to HubSpot
-async function syncToHubSpot({ name, company, phone, email, subject, message }) {
+async function syncToHubSpot({ name, country, phone, email, subject, message }) {
   const apiKey = process.env.HUBSPOT_API_KEY || process.env.HUBSPOT_ACCESS_TOKEN
 
   if (!apiKey) {
@@ -59,7 +59,7 @@ async function syncToHubSpot({ name, company, phone, email, subject, message }) 
         email: email,
         firstname: firstName,
         lastname: lastName,
-        company: company,
+        country: country,
         phone: phone, // Native HubSpot property for phone number
         message: fullMessage, // Standard multi-line text property
       },
@@ -102,13 +102,13 @@ export async function POST(request) {
   }
 
   const name = text(payload?.name, 120)
-  const company = text(payload?.company, 160)
+  const country = text(payload?.country ?? payload?.company, 160)
   const phone = text(payload?.phone, 60)
   const email = text(payload?.email, 160)
-  const subject = text(payload?.subject, 120)
+  const subject = text(payload?.subject, 120) || 'Website contact request'
   const message = text(payload?.message, 4000)
 
-  if (![name, company, phone, email, subject, message].every(Boolean)) {
+  if (![email, message].every(Boolean)) {
     return NextResponse.json({ message: 'All contact fields are required.' }, { status: 400 })
   }
 
@@ -117,11 +117,11 @@ export async function POST(request) {
   }
 
   // 1. Sync Contact Data to HubSpot CRM
-  await syncToHubSpot({ name, company, phone, email, subject, message })
+  await syncToHubSpot({ name, country, phone, email, subject, message })
 
   // 2. Prepare and Send Email Notification via Nodemailer
-  const safe = [name, company, phone, email, subject, message].map(escapeHtml)
-  const [safeName, safeCompany, safePhone, safeEmail, safeSubject, safeMessage] = safe
+  const safe = [name, country, phone, email, subject, message].map(escapeHtml)
+  const [safeName, safeCountry, safePhone, safeEmail, safeSubject, safeMessage] = safe
 
   try {
     await createTransporter().sendMail({
@@ -133,7 +133,7 @@ export async function POST(request) {
         'A new contact request was submitted through the Vivawork website.',
         '',
         `Name: ${name}`,
-        `Company: ${company}`,
+        `Country: ${country}`,
         `Phone: ${phone}`,
         `Email: ${email}`,
         `Subject: ${subject}`,
@@ -152,7 +152,7 @@ export async function POST(request) {
               <p style="margin:0 0 22px;font-size:15px;line-height:1.7;color:#4b5c6d;">Someone sent a message through the website contact form.</p>
               <table role="presentation" style="width:100%;border-collapse:separate;border-spacing:0 10px;">
                 <tr><td style="width:150px;padding:13px 15px;border-radius:12px 0 0 12px;background:#f5f8fb;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7c8e;">Name</td><td style="padding:13px 15px;border-radius:0 12px 12px 0;background:#f5f8fb;font-size:15px;color:#142334;">${safeName}</td></tr>
-                <tr><td style="width:150px;padding:13px 15px;border-radius:12px 0 0 12px;background:#f5f8fb;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7c8e;">Company</td><td style="padding:13px 15px;border-radius:0 12px 12px 0;background:#f5f8fb;font-size:15px;color:#142334;">${safeCompany}</td></tr>
+                <tr><td style="width:150px;padding:13px 15px;border-radius:12px 0 0 12px;background:#f5f8fb;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7c8e;">Country</td><td style="padding:13px 15px;border-radius:0 12px 12px 0;background:#f5f8fb;font-size:15px;color:#142334;">${safeCountry}</td></tr>
                 <tr><td style="width:150px;padding:13px 15px;border-radius:12px 0 0 12px;background:#f5f8fb;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7c8e;">Phone</td><td style="padding:13px 15px;border-radius:0 12px 12px 0;background:#f5f8fb;font-size:15px;color:#142334;">${safePhone}</td></tr>
                 <tr><td style="width:150px;padding:13px 15px;border-radius:12px 0 0 12px;background:#f5f8fb;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7c8e;">Email</td><td style="padding:13px 15px;border-radius:0 12px 12px 0;background:#f5f8fb;font-size:15px;color:#142334;">${safeEmail}</td></tr>
                 <tr><td style="width:150px;padding:13px 15px;border-radius:12px 0 0 12px;background:#f5f8fb;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7c8e;">Subject</td><td style="padding:13px 15px;border-radius:0 12px 12px 0;background:#f5f8fb;font-size:15px;color:#142334;">${safeSubject}</td></tr>

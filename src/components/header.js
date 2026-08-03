@@ -166,7 +166,7 @@ export default function Header({ locale }) {
             </div>
             <div className={`${controlGroupClass} min-w-0 flex-1 justify-center`}>
               {THEMES.map(({ id, label, icon: Icon }) => (
-                <button key={id} type="button" onClick={() => applyTheme(id)} aria-label={`${label} theme`} title={`${label} theme`} className={themeButtonClass} style={theme === id ? activeControlStyle : inactiveControlStyle}>
+                <button key={id} type="button" onClick={() => applyTheme(id)} aria-label={`${label} theme`} title={`${label}`} className={themeButtonClass} style={theme === id ? activeControlStyle : inactiveControlStyle}>
                   <Icon size={13} aria-hidden="true" />
                 </button>
               ))}
@@ -206,7 +206,7 @@ export default function Header({ locale }) {
             </div>
             <div className={controlGroupClass}>
               {THEMES.map(({ id, label, icon: Icon }) => (
-                <button key={id} type="button" onClick={() => applyTheme(id)} aria-label={`${label} theme`} title={`${label} theme`} className="grid h-7 w-7 place-items-center rounded transition-colors hover:text-accent-color" style={theme === id ? activeControlStyle : inactiveControlStyle}><Icon size={14} aria-hidden="true" /></button>
+                <button key={id} type="button" onClick={() => applyTheme(id)} aria-label={`${label} theme`} title={`${label}`} className="grid h-7 w-7 place-items-center rounded transition-colors hover:text-accent-color" style={theme === id ? activeControlStyle : inactiveControlStyle}><Icon size={14} aria-hidden="true" /></button>
               ))}
             </div>
           </div>
