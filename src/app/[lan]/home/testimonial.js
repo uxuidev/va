@@ -85,7 +85,7 @@ export default function Testimonial({ t = {} }) {
     const ratingLabel = t.ratingLabel || "rating";
 
     return (
-        <section id="testimonial" className="scroll-mt-20 overflow-hidden bg-section-alpha py-16 sm:py-20 lg:py-24">
+        <section id="testimonial" className="scroll-mt-20 overflow-hidden bg-section-beta py-16 sm:py-20 lg:py-24">
             <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-10">
                 <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
                     <span className="inline-flex rounded-full border border-header-border bg-section-beta px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-accent-color shadow-[inset_0_1px_0_var(--tech-card-highlight)]">

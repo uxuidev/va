@@ -91,10 +91,10 @@ export default function Contact({ t = {} }) {
     const inputClass = 'mt-2 w-full rounded-md border bg-body-bg px-3 py-2.5 text-sm text-text-main outline-none transition-[border-color,box-shadow] placeholder:text-text-muted focus:border-accent-color focus:ring-2 focus:ring-accent-color/25';
 
     return (
-        <section id="contact" className="scroll-mt-20 overflow-hidden bg-section-alpha py-16 sm:py-20 lg:py-24" aria-labelledby="contact-heading">
+        <section id="contact" className="scroll-mt-20 overflow-hidden bg-section-beta py-16 sm:py-20 lg:py-24" aria-labelledby="contact-heading">
             <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
                 <div className="max-w-3xl">
-                    <span className="inline-flex rounded-full border border-header-border bg-section-beta px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-accent-color">
+                    <span className="inline-flex rounded-full border border-header-border bg-section-alpha px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-accent-color">
                         {t.eyebrow || 'Contact'}
                     </span>
                     <h2 id="contact-heading" className="mt-4 text-3xl font-bold leading-tight text-heading-color sm:text-4xl">{t.heading || "Let's get started"}</h2>
@@ -102,7 +102,7 @@ export default function Contact({ t = {} }) {
                 </div>
 
                 <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.95fr)] lg:gap-10">
-                    <motion.div {...entrance} className="rounded-lg border border-card-border bg-section-beta p-5 shadow-[0_18px_40px_-28px_color-mix(in_srgb,var(--heading-color)_60%,transparent)] sm:p-7">
+                    <motion.div {...entrance} className="rounded-lg border border-card-border bg-section-alpha p-5 shadow-[0_18px_40px_-28px_color-mix(in_srgb,var(--heading-color)_60%,transparent)] sm:p-7">
                         <form noValidate onSubmit={handleSubmit} className="space-y-5" aria-describedby={statusMessage ? 'contact-form-status' : undefined}>
                             <div className="grid gap-5 sm:grid-cols-2">
                                 {['name', 'email', 'country', 'phone'].map((field) => (
@@ -130,10 +130,10 @@ export default function Contact({ t = {} }) {
 
                     <motion.div {...entrance} transition={{ ...entrance.transition, delay: shouldReduceMotion ? 0 : 0.12 }} className="space-y-4">
                         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                            <a href="mailto:adeel@bitwork.tech" className="group flex items-start gap-3 rounded-lg border border-card-border bg-section-beta p-5 transition-[border-color,transform] hover:-translate-y-1 hover:border-accent-color focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color">
+                            <a href="mailto:adeel@bitwork.tech" className="group flex items-start gap-3 rounded-lg border border-card-border bg-section-alpha p-5 transition-[border-color,transform] hover:-translate-y-1 hover:border-accent-color focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color">
                                 <Mail className="mt-0.5 size-5 shrink-0 text-accent-color" aria-hidden="true" /><span><span className="block text-sm font-bold text-heading-color">{t.emailLabel || 'Email us'}</span><span className="mt-1 block text-sm text-text-muted">adeel@bitwork.tech</span></span>
                             </a>
-                            <a href="https://wa.me/923456789765" target="_blank" rel="noreferrer" className="group flex items-start gap-3 rounded-lg border border-card-border bg-section-beta p-5 transition-[border-color,transform] hover:-translate-y-1 hover:border-accent-color focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color">
+                            <a href="https://wa.me/923456789765" target="_blank" rel="noreferrer" className="group flex items-start gap-3 rounded-lg border border-card-border bg-section-alpha p-5 transition-[border-color,transform] hover:-translate-y-1 hover:border-accent-color focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color">
                                 <MessageCircle className="mt-0.5 size-5 shrink-0 text-accent-color" aria-hidden="true" /><span><span className="block text-sm font-bold text-heading-color">{t.whatsAppLabel || 'WhatsApp'}</span><span className="mt-1 block text-sm text-text-muted">+92 345 6789765</span></span>
                             </a>
                         </div>
@@ -152,7 +152,7 @@ export default function Contact({ t = {} }) {
                                             onAnimationComplete={() => {
                                                 if (isMapClosing) setIsMapClosing(false);
                                             }}
-                                            className="absolute inset-0 z-10 grid place-items-center bg-section-beta p-6"
+                                            className="absolute inset-0 z-10 grid place-items-center bg-section-alpha p-6"
                                         >
                                             {!isMapClosing && (
                                                 <motion.button
@@ -187,7 +187,7 @@ export default function Contact({ t = {} }) {
                                             }}
                                             aria-label={t.mapHideLabel || 'Hide Map'}
                                             title={t.mapHideLabel || 'Hide Map'}
-                                            className="group absolute right-3 top-3 z-20 inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-md border border-header-border bg-section-beta/95 text-heading-color shadow-[0_8px_18px_-12px_color-mix(in_srgb,var(--heading-color)_70%,transparent)] backdrop-blur-sm transition-[width,background-color,color,border-color] hover:w-24 hover:border-accent-color hover:bg-accent-color hover:text-body-bg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color"
+                                            className="group absolute right-3 top-3 z-20 inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-md border border-header-border bg-section-alpha/95 text-heading-color shadow-[0_8px_18px_-12px_color-mix(in_srgb,var(--heading-color)_70%,transparent)] backdrop-blur-sm transition-[width,background-color,color,border-color] hover:w-24 hover:border-accent-color hover:bg-accent-color hover:text-body-bg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-color"
                                         >
                                             <EyeOff className="size-4 shrink-0" aria-hidden="true" />
                                             <span className="max-w-0 overflow-hidden whitespace-nowrap pl-0 text-xs opacity-0 transition-[max-width,opacity,padding] duration-200 group-hover:max-w-16 group-hover:pl-1.5 group-hover:opacity-100">
