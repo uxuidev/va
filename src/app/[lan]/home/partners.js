@@ -35,7 +35,7 @@ export default function Partners({ t = {} }) {
     const ctaDescription = t.ctaDescription || 'Tell us about your delivery needs and we will shape the right partnership.';
 
     return (
-        <section id="partner" className="scroll-mt-20 overflow-hidden bg-section-beta py-16 sm:py-20 lg:py-24" aria-labelledby="partner-heading">
+        <section id="partners" className="scroll-mt-20 overflow-hidden bg-section-beta py-16 sm:py-20 lg:py-24" aria-labelledby="partner-heading">
             <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
                 <motion.div
                     className="grid gap-8 border-b border-card-border pb-10 sm:gap-10 sm:pb-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-end"

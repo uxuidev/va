@@ -19,11 +19,11 @@ const ROUTES = [
 ];
 
 const ANCHORS = [
-  { href: '#tech-stack', label: 'Tech Stack' },
-  { href: '#services', label: 'Services' },
-  { href: '#testimonial', label: 'Testimonial' },
-  { href: '#partner', label: 'Partner' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#techstack', label: 'Tech Stack' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#testimonial', label: 'Testimonial' },
+  { href: '/#partners', label: 'Partner' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 const COMPACT_ENTER_SCROLL = 64;

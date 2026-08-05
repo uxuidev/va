@@ -1,0 +1,84 @@
+{
+	"faq": {
+		"eyebrow": "How it works",
+		"title": "Answers for ambitious teams.",
+		"description": "Explore how Tech Savvy Virtual Assistance turns a clear brief and available credit into dependable, expert-led IT delivery.",
+		"searchLabel": "Search frequently asked questions",
+		"searchPlaceholder": "Search a question, service, or topic...",
+		"categoryNavigationLabel": "FAQ categories",
+		"allCategoriesLabel": "All topics",
+		"revealAnswerLabel": "Flip for the answer",
+		"hideAnswerLabel": "Hide answer",
+		"answerLabel": "The answer",
+		"contactSupportLabel": "Contact support",
+		"noResultsTitle": "No matching questions",
+		"noResultsDescription": "Try a different term or browse another category.",
+		"categories": [
+			{
+				"id": "general",
+				"title": "General",
+				"description": "The essentials for getting expert support underway.",
+				"icon": "general",
+				"questions": [
+					{ "question": "What is Tech Savvy Virtual Assistance?", "answer": "It is an on-demand team for practical IT and digital work. You explain the outcome you need in chat, and an expert completes the work against your available credit." },
+					{ "question": "How do I get started?", "answer": "Create your account, receive your sign-up credit, add funds when needed, then start a chat with a clear goal, deadline, and any useful access or reference material." },
+					{ "question": "Who will work on my request?", "answer": "Your request is matched with an expert whose skills fit the job, from development and automation to design, analytics, marketing, and technical operations." },
+					{ "question": "Can I use the service for a one-time task?", "answer": "Yes. The credit-based model works for focused tasks, ongoing improvements, and recurring operational support without requiring a long contract." },
+					{ "question": "How do I communicate requirements?", "answer": "Use chat to describe the desired result, share examples, answer questions, and review progress. A concise brief helps the expert estimate and begin quickly." }
+				]
+			},
+			{
+				"id": "tech",
+				"title": "Tech Stack & Services",
+				"description": "Modern technology, creative production, and connected operations.",
+				"icon": "tech",
+				"questions": [
+					{ "question": "What types of work can your experts handle?", "answer": "We support web and app development, PWAs, workflow automation, UI/UX, digital design, data analytics, ecommerce, social media marketing, video, motion design, and hosting." },
+					{ "question": "Which technologies do you work with?", "answer": "Our toolkit includes Next.js, React, React Native, .NET, PostgreSQL, MySQL, SQL Server, Power BI, Figma, Canva, WooCommerce, HubSpot, GitHub, Make, and n8n." },
+					{ "question": "Can you improve an existing site or application?", "answer": "Yes. Share the issue and current stack. We can investigate bugs, improve performance, add a feature, refresh interfaces, connect systems, or document a practical next step." },
+					{ "question": "Do you offer automation and data reporting?", "answer": "Yes. We can connect the tools you already use, automate repetitive workflows, and turn operational data into clearer dashboards, reports, and decisions." },
+					{ "question": "Can you create brand and marketing assets too?", "answer": "Yes. Design specialists can prepare interface concepts, branded graphics, social content, video edits, motion assets, and campaign materials that fit your goals." }
+				]
+			},
+			{
+				"id": "pricing",
+				"title": "Pay As You Go",
+				"description": "Straightforward credit and time-based billing without retainers.",
+				"icon": "pricing",
+				"questions": [
+					{ "question": "How does Pay As You Go billing work?", "answer": "Work is charged from your account credit at the applicable hourly rate. You only add credit when you need more capacity, with no mandatory monthly retainer." },
+					{ "question": "What is the introductory rate?", "answer": "For your first month, expert time is $5 per hour. After the first month, the standard hourly rate is $10 per hour." },
+					{ "question": "Do I receive credit when I sign up?", "answer": "Yes. New users receive $50 in account credit at sign-up, giving you room to begin a task and experience the workflow." },
+					{ "question": "Will I know the expected cost before work begins?", "answer": "After reviewing your request, the expert will clarify scope and expected effort in chat. You can ask questions or adjust the brief before authorizing work." },
+					{ "question": "What happens when my credit is low?", "answer": "Add credit to continue uninterrupted. Your expert can also help prioritize the most valuable next step when the available balance is limited." }
+				]
+			},
+			{
+				"id": "partners",
+				"title": "Partners",
+				"description": "Flexible delivery support for agencies and growing teams.",
+				"icon": "partners",
+				"questions": [
+					{ "question": "Who is the partner program for?", "answer": "It is designed for agencies, consultants, startups, and in-house teams that need dependable specialist capacity without building every capability internally." },
+					{ "question": "Can you work behind the scenes for my clients?", "answer": "Yes. Share the preferred collaboration style and delivery expectations in your initial conversation so the engagement can be structured appropriately." },
+					{ "question": "What work can partners delegate?", "answer": "Partners can delegate technical builds, design production, analytics, automation, content assets, maintenance, and defined project slices that need specialist attention." },
+					{ "question": "How do partners keep delivery aligned?", "answer": "Use the chat to set priorities, provide brand or technical context, review milestones, and keep feedback close to the work as it progresses." },
+					{ "question": "Can I start small before scaling up?", "answer": "Absolutely. Begin with a well-defined task, evaluate the quality and communication, then expand into ongoing support when the working rhythm is right." }
+				]
+			},
+			{
+				"id": "support",
+				"title": "Maintenance & Support",
+				"description": "Keep important digital work healthy after launch.",
+				"icon": "support",
+				"questions": [
+					{ "question": "Do you provide post-launch maintenance?", "answer": "Yes. We can help with updates, fixes, performance checks, security-minded housekeeping, hosting tasks, and steady improvement after a site or product launches." },
+					{ "question": "Can you take over an existing project?", "answer": "Yes. Start by sharing the stack, current issue, and available documentation. We will assess the next practical action and identify any access or context needed." },
+					{ "question": "How quickly can support begin?", "answer": "Timing depends on the request's clarity, complexity, and required access. A focused first message helps us match an expert and begin the conversation quickly." },
+					{ "question": "Can you help with hosting, domains, and SSL?", "answer": "Yes. Our support includes managed hosting tasks, domain and SSL coordination, backups, updates, and other maintenance activities needed to keep a service dependable." },
+					{ "question": "What should I include in a support request?", "answer": "Include the goal or issue, urgency, affected URL or system, screenshots or errors, recent changes, and the access details needed to investigate safely." }
+				]
+			}
+		]
+	}
+}

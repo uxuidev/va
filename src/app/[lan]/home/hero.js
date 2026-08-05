@@ -294,7 +294,7 @@ export default function Hero({ t = {}, language }) {
     };
 
     return (
-        <section id="tech-stack" className="scroll-mt-20 overflow-hidden bg-section-alpha">
+        <section id="techstack" className="scroll-mt-20 overflow-hidden bg-section-alpha">
             <div className="mx-auto grid min-h-150 max-w-[1600px] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
                 <div
                     ref={stackRef}

@@ -10,6 +10,7 @@ const dictionaries = {
     testimonial: () => import('./en/testimonial.json'),
     portfolio: () => import('./en/portfolio.json'),
     feedback: () => import('./en/feedback.json'),
+    faq: () => import('./en/faq.json'),
   },
   es: {
     home: () => import('./es/home.json'),
@@ -17,6 +18,7 @@ const dictionaries = {
     testimonial: () => import('./es/testimonial.json'),
     portfolio: () => import('./es/portfolio.json'),
     feedback: () => import('./es/feedback.json'),
+    faq: () => import('./es/faq.json'),
   },
 };
 

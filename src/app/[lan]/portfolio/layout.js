@@ -14,14 +14,14 @@ export default async function PortfolioLayout({ children, params }) {
     const content = await getDictionary(lan, "portfolio");
 
     return (
-        <section className="bg-section-alpha py-10 sm:py-14">
+        <section className="bg-section-beta py-10 sm:py-14">
             <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <header className="mx-auto mb-8 max-w-2xl text-center sm:mb-10">
                     <h1 className="text-3xl font-black text-heading-color sm:text-4xl">{content.title}</h1>
                     <p className="mt-3 text-sm leading-6 text-text-muted sm:text-base">{content.subtitle}</p>
                 </header>
                 <nav aria-label={content.navigation} className="mb-8 overflow-x-auto pb-2 sm:mb-10">
-                    <ul className="mx-auto flex w-fit min-w-max items-center gap-1 rounded-md border border-header-border bg-section-beta p-1.5 shadow-sm">
+                    <ul className="mx-auto flex w-fit min-w-max items-center gap-1 rounded-md border border-header-border bg-section-alpha p-1.5 shadow-sm">
                         {tabs.map(({ id, icon: Icon }) => (
                             <li key={id}>
                                 <a

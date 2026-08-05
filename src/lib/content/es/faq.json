@@ -1,0 +1,84 @@
+{
+	"faq": {
+		"eyebrow": "Como funciona",
+		"title": "Respuestas para equipos ambiciosos.",
+		"description": "Descubre como Tech Savvy Virtual Assistance convierte una solicitud clara y credito disponible en entrega de TI confiable dirigida por expertos.",
+		"searchLabel": "Buscar preguntas frecuentes",
+		"searchPlaceholder": "Busca una pregunta, servicio o tema...",
+		"categoryNavigationLabel": "Categorias de preguntas frecuentes",
+		"allCategoriesLabel": "Todos los temas",
+		"revealAnswerLabel": "Gira para ver la respuesta",
+		"hideAnswerLabel": "Ocultar respuesta",
+		"answerLabel": "La respuesta",
+		"contactSupportLabel": "Contactar soporte",
+		"noResultsTitle": "No hay preguntas coincidentes",
+		"noResultsDescription": "Prueba otro termino o explora otra categoria.",
+		"categories": [
+			{
+				"id": "general",
+				"title": "General",
+				"description": "Lo esencial para comenzar con apoyo experto.",
+				"icon": "general",
+				"questions": [
+					{ "question": "Que es Tech Savvy Virtual Assistance?", "answer": "Es un equipo bajo demanda para trabajo practico de TI y digital. Explicas el resultado que necesitas en el chat y un experto realiza el trabajo con tu credito disponible." },
+					{ "question": "Como empiezo?", "answer": "Crea tu cuenta, recibe tu credito de registro, agrega fondos cuando los necesites y comienza un chat con un objetivo claro, fecha limite y materiales de referencia utiles." },
+					{ "question": "Quien trabajara en mi solicitud?", "answer": "Tu solicitud se asigna a un experto cuyas habilidades encajan con el trabajo, desde desarrollo y automatizacion hasta diseno, analitica, marketing y operaciones tecnicas." },
+					{ "question": "Puedo usar el servicio para una tarea unica?", "answer": "Si. El modelo basado en credito funciona para tareas puntuales, mejoras continuas y soporte operativo recurrente sin exigir un contrato largo." },
+					{ "question": "Como comunico los requisitos?", "answer": "Usa el chat para describir el resultado deseado, compartir ejemplos, responder preguntas y revisar avances. Un resumen conciso ayuda al experto a estimar y comenzar rapido." }
+				]
+			},
+			{
+				"id": "tech",
+				"title": "Tecnologia y servicios",
+				"description": "Tecnologia moderna, produccion creativa y operaciones conectadas.",
+				"icon": "tech",
+				"questions": [
+					{ "question": "Que tipo de trabajo pueden realizar sus expertos?", "answer": "Apoyamos desarrollo web y de aplicaciones, PWA, automatizacion de flujos, UI/UX, diseno digital, analitica de datos, ecommerce, marketing social, video, motion design y hosting." },
+					{ "question": "Con que tecnologias trabajan?", "answer": "Nuestro conjunto incluye Next.js, React, React Native, .NET, PostgreSQL, MySQL, SQL Server, Power BI, Figma, Canva, WooCommerce, HubSpot, GitHub, Make y n8n." },
+					{ "question": "Pueden mejorar un sitio o aplicacion existente?", "answer": "Si. Comparte el problema y la tecnologia actual. Podemos investigar errores, mejorar rendimiento, agregar funciones, renovar interfaces, conectar sistemas o documentar un siguiente paso practico." },
+					{ "question": "Ofrecen automatizacion y reportes de datos?", "answer": "Si. Podemos conectar las herramientas que ya utilizas, automatizar flujos repetitivos y transformar datos operativos en paneles, reportes y decisiones mas claros." },
+					{ "question": "Tambien pueden crear activos de marca y marketing?", "answer": "Si. Los especialistas de diseno pueden preparar conceptos de interfaz, graficos de marca, contenido social, ediciones de video, activos de movimiento y materiales de campana." }
+				]
+			},
+			{
+				"id": "pricing",
+				"title": "Pago por uso",
+				"description": "Credito y facturacion por tiempo claros, sin cuotas fijas.",
+				"icon": "pricing",
+				"questions": [
+					{ "question": "Como funciona la facturacion de pago por uso?", "answer": "El trabajo se cobra de tu credito de cuenta a la tarifa por hora aplicable. Solo agregas credito cuando necesitas mas capacidad, sin una cuota mensual obligatoria." },
+					{ "question": "Cual es la tarifa introductoria?", "answer": "Durante tu primer mes, el tiempo experto cuesta $5 por hora. Despues del primer mes, la tarifa estandar por hora es de $10." },
+					{ "question": "Recibo credito al registrarme?", "answer": "Si. Los nuevos usuarios reciben $50 de credito de cuenta al registrarse, para que puedas iniciar una tarea y conocer el flujo de trabajo." },
+					{ "question": "Conocere el costo esperado antes de iniciar?", "answer": "Tras revisar tu solicitud, el experto aclarara el alcance y el esfuerzo esperado en el chat. Puedes hacer preguntas o ajustar el resumen antes de autorizar el trabajo." },
+					{ "question": "Que sucede cuando mi credito es bajo?", "answer": "Agrega credito para continuar sin interrupciones. Tu experto tambien puede ayudarte a priorizar el siguiente paso mas valioso cuando el saldo es limitado." }
+				]
+			},
+			{
+				"id": "partners",
+				"title": "Socios",
+				"description": "Apoyo de entrega flexible para agencias y equipos en crecimiento.",
+				"icon": "partners",
+				"questions": [
+					{ "question": "Para quien es el programa de socios?", "answer": "Esta pensado para agencias, consultores, startups y equipos internos que necesitan capacidad especialista confiable sin crear cada habilidad internamente." },
+					{ "question": "Pueden trabajar entre bastidores para mis clientes?", "answer": "Si. Comparte el estilo de colaboracion y las expectativas de entrega en la conversacion inicial para estructurar el trabajo de forma adecuada." },
+					{ "question": "Que trabajo pueden delegar los socios?", "answer": "Los socios pueden delegar desarrollos tecnicos, produccion de diseno, analitica, automatizacion, activos de contenido, mantenimiento y partes definidas de proyectos." },
+					{ "question": "Como mantienen los socios la entrega alineada?", "answer": "Usa el chat para establecer prioridades, aportar contexto de marca o tecnico, revisar hitos y mantener los comentarios cerca del trabajo mientras avanza." },
+					{ "question": "Puedo comenzar pequeno antes de escalar?", "answer": "Por supuesto. Comienza con una tarea bien definida, evalua la calidad y la comunicacion, y luego amplia hacia soporte continuo cuando el ritmo de trabajo sea adecuado." }
+				]
+			},
+			{
+				"id": "support",
+				"title": "Mantenimiento y soporte",
+				"description": "Mantiene sano el trabajo digital importante despues del lanzamiento.",
+				"icon": "support",
+				"questions": [
+					{ "question": "Ofrecen mantenimiento despues del lanzamiento?", "answer": "Si. Podemos ayudar con actualizaciones, correcciones, revisiones de rendimiento, tareas de seguridad, hosting y mejora continua despues del lanzamiento de un sitio o producto." },
+					{ "question": "Pueden hacerse cargo de un proyecto existente?", "answer": "Si. Comienza compartiendo la tecnologia, el problema actual y la documentacion disponible. Evaluaremos la siguiente accion practica y el acceso o contexto necesario." },
+					{ "question": "Con que rapidez puede comenzar el soporte?", "answer": "El tiempo depende de la claridad, complejidad y acceso requerido por la solicitud. Un primer mensaje enfocado ayuda a asignar un experto y empezar rapidamente." },
+					{ "question": "Pueden ayudar con hosting, dominios y SSL?", "answer": "Si. El soporte incluye tareas de hosting administrado, coordinacion de dominios y SSL, copias de seguridad, actualizaciones y mantenimiento para conservar un servicio confiable." },
+					{ "question": "Que debo incluir en una solicitud de soporte?", "answer": "Incluye el objetivo o problema, urgencia, URL o sistema afectado, capturas o errores, cambios recientes y los detalles de acceso necesarios para investigar con seguridad." }
+				]
+			}
+		]
+	}
+}
